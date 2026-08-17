@@ -113,14 +113,14 @@ VITE_TEMPLATE_ID=
 VITE_PUBLIC_KEY=
 
 # Backend API URL
-VITE_API_URL=http:
+VITE_API_URL=
 ```
 
 ### 📁 Backend `.env`
 ```env
-PORT=5000
-NODE_ENV=development
-MONGO_URI=mongodb:
+PORT=
+NODE_ENV=
+MONGO_URI=
 CLIENT_ORIGIN=
 ```
 
