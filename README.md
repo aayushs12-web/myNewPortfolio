@@ -108,19 +108,19 @@ The typography system combines high-contrast display fonts with modern corporate
 ### 📁 Frontend `.env`
 ```env
 # EmailJS Credentials
-VITE_SERVICE_ID=service_ugmin38
-VITE_TEMPLATE_ID=template_rrvhwln
-VITE_PUBLIC_KEY=1Y5QmzyMQqD78x-qz
+VITE_SERVICE_ID=
+VITE_TEMPLATE_ID=
+VITE_PUBLIC_KEY=
 
 # Backend API URL
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http:
 ```
 
 ### 📁 Backend `.env`
 ```env
 PORT=5000
 NODE_ENV=development
-MONGO_URI=mongodb://localhost:27017/portfolio
+MONGO_URI=mongodb:
 CLIENT_ORIGIN=http://localhost:5173
 ```
 
