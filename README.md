@@ -121,7 +121,7 @@ VITE_API_URL=http:
 PORT=5000
 NODE_ENV=development
 MONGO_URI=mongodb:
-CLIENT_ORIGIN=http://localhost:5173
+CLIENT_ORIGIN=
 ```
 
 ---
@@ -153,9 +153,9 @@ cd myPortfolio_MERN
 docker compose up --build -d
 ```
 
-- **Frontend App**: `http://localhost:80`
-- **Backend API**: `http://localhost:5000`
-- **Health Check**: `http://localhost:5000/api/health`
+- **Frontend App**: 
+- **Backend API**: 
+- **Health Check**: 
 
 ---
 
