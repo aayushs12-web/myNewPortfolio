@@ -2,155 +2,98 @@ name: Portfolio CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, master ]
+    branches:
+      - main
+      - master
   pull_request:
-    branches: [ main, master ]
-  workflow_dispatch:
+    branches:
+      - main
+      - master
+  workflow_dispatch: {}
 
 env:
-  REGISTRY: docker.io
-  DOCKER_USER: aayushlabs
   FRONTEND_IMAGE_NAME: aayushlabs/portfolio-frontend
   BACKEND_IMAGE_NAME: aayushlabs/portfolio-backend
 
 jobs:
-  # ──────────────────────────────────────────
-  # Step 1: Install Dependencies & Build Frontend (Vite)
-  # ──────────────────────────────────────────
   frontend-build:
-    name: Frontend Build & Validation (Vite)
+    name: Frontend Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
-      - name: Setup Node.js 20
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: Frontend/package-lock.json
 
-      - name: Install Frontend Dependencies (npm ci)
-        working-directory: ./Frontend
+      - name: Install Dependencies
         run: npm ci
+        working-directory: Frontend
 
-      - name: Build Production Frontend (npm run build)
-        working-directory: ./Frontend
+      - name: Build Frontend
+        run: npm run build
+        working-directory: Frontend
         env:
           VITE_SERVICE_ID: ${{ secrets.VITE_SERVICE_ID }}
           VITE_TEMPLATE_ID: ${{ secrets.VITE_TEMPLATE_ID }}
           VITE_PUBLIC_KEY: ${{ secrets.VITE_PUBLIC_KEY }}
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
-        run: npm run build
 
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-dist
-          path: Frontend/dist
-          retention-days: 1
-
-  # ──────────────────────────────────────────
-  # Step 2: Validate Backend Build & Dependencies
-  # ──────────────────────────────────────────
   backend-build:
-    name: Backend Validation (npm ci)
+    name: Backend Validation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
-      - name: Setup Node.js 20
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: Backend/package-lock.json
 
-      - name: Install Backend Dependencies (npm ci)
-        working-directory: ./Backend
+      - name: Install Dependencies
         run: npm ci
+        working-directory: Backend
 
-  # ──────────────────────────────────────────
-  # Step 3: Docker Build & Push Stage (Docker Hub)
-  # ──────────────────────────────────────────
   docker-build:
-    name: Docker Build & Push (aayushlabs Docker Hub)
-    needs: [frontend-build, backend-build]
+    name: Docker Build
+    needs:
+      - frontend-build
+      - backend-build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v3.6.0
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3.10.0
 
-      - name: Check Docker Hub Credentials
-        id: check-docker
-        run: |
-          if [ -n "${{ secrets.DOCKER_USERNAME }}" ] && [ -n "${{ secrets.DOCKER_PASSWORD }}" ]; then
-            echo "DOCKER_AUTH=true" >> $GITHUB_ENV
-            echo "✅ Docker Hub credentials configured."
-          else
-            echo "DOCKER_AUTH=false" >> $GITHUB_ENV
-            echo "⚠️ Docker Hub credentials not set in secrets. Skipping registry push."
-          fi
-
-      - name: Log in to Docker Hub
-        if: env.DOCKER_AUTH == 'true'
-        uses: docker/login-action@v3
+      - name: Build Frontend Image
+        uses: docker/build-push-action@v6.15.0
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          context: Frontend
+          file: Frontend/Dockerfile
+          push: false
+          tags: aayushlabs/portfolio-frontend:latest
 
-      - name: Build & Push Frontend Image (Nginx)
-        uses: docker/build-push-action@v5
+      - name: Build Backend Image
+        uses: docker/build-push-action@v6.15.0
         with:
-          context: ./Frontend
-          file: ./Frontend/Dockerfile
-          push: ${{ env.DOCKER_AUTH == 'true' }}
-          tags: |
-            ${{ env.FRONTEND_IMAGE_NAME }}:latest
-            ${{ env.FRONTEND_IMAGE_NAME }}:${{ github.sha }}
-          build-args: |
-            VITE_SERVICE_ID=${{ secrets.VITE_SERVICE_ID }}
-            VITE_TEMPLATE_ID=${{ secrets.VITE_TEMPLATE_ID }}
-            VITE_PUBLIC_KEY=${{ secrets.VITE_PUBLIC_KEY }}
-            VITE_API_URL=${{ secrets.VITE_API_URL }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          context: Backend
+          file: Backend/Dockerfile
+          push: false
+          tags: aayushlabs/portfolio-backend:latest
 
-      - name: Build & Push Backend Image
-        uses: docker/build-push-action@v5
-        with:
-          context: ./Backend
-          file: ./Backend/Dockerfile
-          push: ${{ env.DOCKER_AUTH == 'true' }}
-          tags: |
-            ${{ env.BACKEND_IMAGE_NAME }}:latest
-            ${{ env.BACKEND_IMAGE_NAME }}:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-  # ──────────────────────────────────────────
-  # Step 4: Summary & Vercel Trigger Status
-  # ──────────────────────────────────────────
   deployment-status:
-    name: Deployment Verification Status
-    needs: docker-build
+    name: Deployment Status
+    needs:
+      - docker-build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     steps:
-      - name: Log Deployment Status
-        run: |
-          echo "=================================================================="
-          echo "🚀  CI/CD PIPELINE EXECUTED SUCCESSFULLY!"
-          echo "📦  1. Frontend & Backend dependencies validated"
-          echo "⚡  2. Production Vite bundle compiled & verified"
-          echo "🐳  3. Docker images created for aayushlabs/portfolio-frontend & backend"
-          echo "🌐  4. Live Vercel auto-deployment triggered on commit push"
-          echo "=================================================================="
+      - name: Log Status
+        run: echo "Pipeline executed successfully!"

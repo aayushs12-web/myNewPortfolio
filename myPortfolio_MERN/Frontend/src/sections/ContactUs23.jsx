@@ -56,7 +56,10 @@ export default function ContactUs23() {
   const [budget, setBudget] = useState("");
   const [customBudget, setCustomBudget] = useState("");
   const [idea, setIdea] = useState("");
-  
+
+  const rawBudget = customBudget.trim() ? customBudget.trim() : (budget || "Flexible");
+  const currentBudget = rawBudget.startsWith("₹") ? rawBudget : `₹ ${rawBudget}`;
+
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -92,10 +95,11 @@ export default function ContactUs23() {
       setErrorMsg("Please describe your project vision or requirements.");
       return;
     }
-    
+
     setLoading(true);
 
-    const finalBudget = customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible");
+    const finalBudget = currentBudget;
+
     const payload = {
       name: name.trim(),
       email: email.trim(),
@@ -108,6 +112,13 @@ export default function ContactUs23() {
     const serviceID = (import.meta.env.VITE_SERVICE_ID || import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_ugmin38").trim();
     const templateID = (import.meta.env.VITE_TEMPLATE_ID || import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_rrvhwln").trim();
     const publicKey = (import.meta.env.VITE_PUBLIC_KEY || import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "1Y5QmzyMQqD78x-qz").trim();
+
+    // Format services with clean bullet points and newlines (works with white-space: pre-line in HTML email template)
+    const formattedServices = selectedServices.length > 0
+      ? selectedServices.map((s) => `• ${s}`).join("\n")
+      : "Not specified";
+
+    const cleanBudgetNumber = finalBudget.replace(/^₹\s*/, "");
 
     // Comprehensive Template Params covering all possible EmailJS variable names
     const templateParams = {
@@ -123,27 +134,43 @@ export default function ContactUs23() {
 
       to_name: "Aayush Sharma",
 
-      service: selectedServices.join(", "),
-      services: selectedServices.join(", "),
-      user_service: selectedServices.join(", "),
+      service: formattedServices,
+      services: formattedServices,
+      user_service: formattedServices,
 
       budget: finalBudget,
+      raw_budget: cleanBudgetNumber,
       user_budget: finalBudget,
 
-      // Project idea / message aliases to match any template key in EmailJS dashboard
+      // Exhaustive Project Idea & Details Variable Aliases
       message: idea.trim(),
       idea: idea.trim(),
       project_idea: idea.trim(),
+      project_details: idea.trim(),
+      project_idea_details: idea.trim(),
+      idea_details: idea.trim(),
+      user_idea: idea.trim(),
+      client_idea: idea.trim(),
+      message_details: idea.trim(),
+      message_html: idea.trim().replace(/\n/g, "<br/>"),
+      message_text: idea.trim(),
       details: idea.trim(),
       user_message: idea.trim(),
       description: idea.trim(),
+      project_description: idea.trim(),
+      requirements: idea.trim(),
       notes: idea.trim(),
       inquiry_details: idea.trim(),
+      idea_text: idea.trim(),
+      idea_message: idea.trim(),
+      idea_body: idea.trim(),
+      idea_content: idea.trim(),
+      project_summary: idea.trim(),
+      inquiry_idea: idea.trim(),
       body: idea.trim(),
       text: idea.trim(),
-
-      summary: `Inquiry from ${name.trim()} (${email.trim()})\nServices: ${selectedServices.join(", ")}\nBudget: ${finalBudget}\nIdea: ${idea.trim()}`,
-      content: `Inquiry from ${name.trim()} (${email.trim()})\nServices: ${selectedServices.join(", ")}\nBudget: ${finalBudget}\nIdea: ${idea.trim()}`,
+      summary: idea.trim(),
+      content: idea.trim(),
     };
 
     let emailSentSuccessfully = false;
@@ -152,8 +179,8 @@ export default function ContactUs23() {
       // Initialize EmailJS Public Key
       emailjs.init({ publicKey });
 
-      // Primary send method using templateParams
-      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      // Primary send method using templateParams (v4 options object format)
+      await emailjs.send(serviceID, templateID, templateParams, { publicKey });
       emailSentSuccessfully = true;
     } catch (err) {
       const detailErr = err?.text || err?.message || (typeof err === "string" ? err : JSON.stringify(err));
@@ -161,7 +188,7 @@ export default function ContactUs23() {
       // Attempt sendForm fallback if formRef is available
       if (formRef.current) {
         try {
-          await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey);
+          await emailjs.sendForm(serviceID, templateID, formRef.current, { publicKey });
           emailSentSuccessfully = true;
         } catch (formErr) {
           const formErrDetail = formErr?.text || formErr?.message || (typeof formErr === "string" ? formErr : JSON.stringify(formErr));
@@ -201,7 +228,7 @@ export default function ContactUs23() {
   return (
     <section id="contact" className="relative w-full py-10 sm:py-16 px-4 sm:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
           <motion.div
@@ -229,7 +256,7 @@ export default function ContactUs23() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
+
           {/* Left Column: Contact Details & Availability */}
           <motion.div
             className="lg:col-span-5 glass-card p-6 sm:p-9 rounded-3xl border border-[#BE93FD]/30 flex flex-col justify-between gap-8 shadow-[0_20px_50px_rgba(0,0,0,0.85)] relative overflow-hidden"
@@ -347,21 +374,37 @@ export default function ContactUs23() {
               <input type="hidden" name="service" value={selectedServices.join(", ")} />
               <input type="hidden" name="services" value={selectedServices.join(", ")} />
               <input type="hidden" name="user_service" value={selectedServices.join(", ")} />
-              <input type="hidden" name="budget" value={customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible")} />
-              <input type="hidden" name="user_budget" value={customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible")} />
+              <input type="hidden" name="budget" value={currentBudget} />
+              <input type="hidden" name="user_budget" value={currentBudget} />
               <input type="hidden" name="message" value={idea} />
               <input type="hidden" name="idea" value={idea} />
               <input type="hidden" name="project_idea" value={idea} />
+              <input type="hidden" name="project_details" value={idea} />
+              <input type="hidden" name="project_idea_details" value={idea} />
+              <input type="hidden" name="idea_details" value={idea} />
+              <input type="hidden" name="user_idea" value={idea} />
+              <input type="hidden" name="client_idea" value={idea} />
+              <input type="hidden" name="message_details" value={idea} />
+              <input type="hidden" name="message_html" value={idea} />
+              <input type="hidden" name="message_text" value={idea} />
               <input type="hidden" name="details" value={idea} />
+              <input type="hidden" name="user_message" value={idea} />
               <input type="hidden" name="description" value={idea} />
+              <input type="hidden" name="project_description" value={idea} />
+              <input type="hidden" name="requirements" value={idea} />
               <input type="hidden" name="notes" value={idea} />
               <input type="hidden" name="inquiry_details" value={idea} />
-              <input type="hidden" name="user_message" value={idea} />
+              <input type="hidden" name="idea_text" value={idea} />
+              <input type="hidden" name="idea_message" value={idea} />
+              <input type="hidden" name="idea_body" value={idea} />
+              <input type="hidden" name="idea_content" value={idea} />
+              <input type="hidden" name="project_summary" value={idea} />
+              <input type="hidden" name="inquiry_idea" value={idea} />
               <input type="hidden" name="body" value={idea} />
               <input type="hidden" name="text" value={idea} />
-              <input type="hidden" name="summary" value={`Inquiry from ${name.trim()} (${email.trim()})\nServices: ${selectedServices.join(", ")}\nBudget: ${customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible")}\nIdea: ${idea.trim()}`} />
-              <input type="hidden" name="content" value={`Inquiry from ${name.trim()} (${email.trim()})\nServices: ${selectedServices.join(", ")}\nBudget: ${customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible")}\nIdea: ${idea.trim()}`} />
-              
+              <input type="hidden" name="summary" value={idea} />
+              <input type="hidden" name="content" value={idea} />
+
               {/* Form Title */}
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex items-center gap-2 text-white font-display font-bold text-lg sm:text-xl">
@@ -429,11 +472,10 @@ export default function ContactUs23() {
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                         onClick={() => toggleService(srv.name)}
-                        className={`p-3.5 rounded-2xl border text-left flex flex-col justify-between gap-2.5 transition-all duration-300 cursor-pointer relative overflow-hidden ${
-                          isSelected
+                        className={`p-3.5 rounded-2xl border text-left flex flex-col justify-between gap-2.5 transition-all duration-300 cursor-pointer relative overflow-hidden ${isSelected
                             ? "bg-gradient-to-br from-[#BE93FD]/25 via-[#D65DB1]/20 to-[#FF6F91]/20 border-[#BE93FD] text-white shadow-[0_0_20px_rgba(190,147,253,0.3)]"
                             : "bg-[#0D0814]/70 border-white/10 text-gray-300 hover:border-white/30 hover:bg-white/5"
-                        }`}
+                          }`}
                       >
                         <div className="flex items-center justify-between w-full">
                           <div className={`p-2 rounded-xl ${isSelected ? "bg-[#BE93FD] text-[#0D0814]" : "bg-white/5 text-[#BE93FD]"}`}>
@@ -485,11 +527,10 @@ export default function ContactUs23() {
                             setBudget(b);
                             setCustomBudget("");
                           }}
-                          className={`px-3.5 py-2 rounded-xl text-xs font-mono-tech font-semibold transition-all cursor-pointer border ${
-                            budget === b && !customBudget
+                          className={`px-3.5 py-2 rounded-xl text-xs font-mono-tech font-semibold transition-all cursor-pointer border ${budget === b && !customBudget
                               ? "bg-gradient-to-r from-[#BE93FD] to-[#D65DB1] text-[#0D0814] border-transparent shadow-[0_0_15px_rgba(214,93,177,0.4)] scale-105"
                               : "bg-[#0D0814]/80 text-gray-300 border-white/10 hover:border-[#BE93FD]/50 hover:text-white"
-                          }`}
+                            }`}
                         >
                           {b}
                         </button>
@@ -523,8 +564,8 @@ export default function ContactUs23() {
                   <span>PROJECT IDEA & DETAILS *</span>
                 </label>
                 <textarea
-                  name="message"
-                  id="message"
+                  name="project_details"
+                  id="project_details"
                   rows={4}
                   required
                   value={idea}
