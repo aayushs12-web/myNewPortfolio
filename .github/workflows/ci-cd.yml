@@ -15,10 +15,10 @@ env:
 
 jobs:
   # ──────────────────────────────────────────
-  # Step 1: Install Dependencies & Build Frontend
+  # Step 1: Install Dependencies & Build Frontend (Vite)
   # ──────────────────────────────────────────
   frontend-build:
-    name: Frontend Build (npm ci -> npm run build)
+    name: Frontend Build & Validation (Vite)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -55,7 +55,7 @@ jobs:
   # Step 2: Validate Backend Build & Dependencies
   # ──────────────────────────────────────────
   backend-build:
-    name: Backend CI (npm ci)
+    name: Backend Validation (npm ci)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -73,7 +73,7 @@ jobs:
         run: npm ci
 
   # ──────────────────────────────────────────
-  # Step 3: Docker Build & Push Stage
+  # Step 3: Docker Build & Push Stage (Docker Hub)
   # ──────────────────────────────────────────
   docker-build:
     name: Docker Build & Push (aayushlabs Docker Hub)
@@ -137,10 +137,10 @@ jobs:
           cache-to: type=gha,mode=max
 
   # ──────────────────────────────────────────
-  # Step 4: Production Deployment Trigger
+  # Step 4: Summary & Vercel Trigger Status
   # ──────────────────────────────────────────
-  deploy:
-    name: Production Server Deployment
+  deployment-status:
+    name: Deployment Verification Status
     needs: docker-build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
@@ -149,32 +149,8 @@ jobs:
         run: |
           echo "=================================================================="
           echo "🚀  CI/CD PIPELINE EXECUTED SUCCESSFULLY!"
-          echo "📦  1. npm ci & npm run build verified"
-          echo "🐳  2. Docker Hub images created for aayushlabs/portfolio-frontend & backend"
-          echo "🌐  3. Production server deployment check ready"
+          echo "📦  1. Frontend & Backend dependencies validated"
+          echo "⚡  2. Production Vite bundle compiled & verified"
+          echo "🐳  3. Docker images created for aayushlabs/portfolio-frontend & backend"
+          echo "🌐  4. Live Vercel auto-deployment triggered on commit push"
           echo "=================================================================="
-
-      - name: Check SSH Deployment Secrets
-        id: check-ssh
-        run: |
-          if [ -n "${{ secrets.SERVER_HOST }}" ] && [ -n "${{ secrets.SERVER_USER }}" ] && [ -n "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
-            echo "SSH_READY=true" >> $GITHUB_ENV
-            echo "✅ Production VPS SSH credentials detected."
-          else
-            echo "SSH_READY=false" >> $GITHUB_ENV
-            echo "⚠️ Production VPS SSH credentials not configured in GitHub Secrets yet. Skipping remote SSH execution."
-          fi
-
-      - name: SSH Deploy to Production VPS
-        if: env.SSH_READY == 'true'
-        continue-on-error: true
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /var/www/portfolio || exit 1
-            docker compose pull
-            docker compose up -d --remove-orphans
-            docker system prune -f
