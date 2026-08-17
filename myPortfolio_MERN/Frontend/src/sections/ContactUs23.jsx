@@ -109,7 +109,7 @@ export default function ContactUs23() {
     const templateID = (import.meta.env.VITE_TEMPLATE_ID || import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_rrvhwln").trim();
     const publicKey = (import.meta.env.VITE_PUBLIC_KEY || import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "1Y5QmzyMQqD78x-qz").trim();
 
-    // Comprehensive Template Params covering all EmailJS variable naming patterns
+    // Comprehensive Template Params covering all possible EmailJS variable names
     const templateParams = {
       from_name: name.trim(),
       name: name.trim(),
@@ -130,11 +130,17 @@ export default function ContactUs23() {
       budget: finalBudget,
       user_budget: finalBudget,
 
+      // Project idea / message aliases to match any template key in EmailJS dashboard
       message: idea.trim(),
       idea: idea.trim(),
       project_idea: idea.trim(),
       details: idea.trim(),
       user_message: idea.trim(),
+      description: idea.trim(),
+      notes: idea.trim(),
+      inquiry_details: idea.trim(),
+      body: idea.trim(),
+      text: idea.trim(),
 
       summary: `Inquiry from ${name.trim()} (${email.trim()})\nServices: ${selectedServices.join(", ")}\nBudget: ${finalBudget}\nIdea: ${idea.trim()}`,
       content: `Inquiry from ${name.trim()} (${email.trim()})\nServices: ${selectedServices.join(", ")}\nBudget: ${finalBudget}\nIdea: ${idea.trim()}`,
@@ -333,16 +339,28 @@ export default function ContactUs23() {
               <input type="hidden" name="from_name" value={name} />
               <input type="hidden" name="name" value={name} />
               <input type="hidden" name="user_name" value={name} />
+              <input type="hidden" name="full_name" value={name} />
               <input type="hidden" name="from_email" value={email} />
               <input type="hidden" name="email" value={email} />
               <input type="hidden" name="user_email" value={email} />
               <input type="hidden" name="reply_to" value={email} />
               <input type="hidden" name="service" value={selectedServices.join(", ")} />
               <input type="hidden" name="services" value={selectedServices.join(", ")} />
+              <input type="hidden" name="user_service" value={selectedServices.join(", ")} />
               <input type="hidden" name="budget" value={customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible")} />
+              <input type="hidden" name="user_budget" value={customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible")} />
               <input type="hidden" name="message" value={idea} />
               <input type="hidden" name="idea" value={idea} />
+              <input type="hidden" name="project_idea" value={idea} />
               <input type="hidden" name="details" value={idea} />
+              <input type="hidden" name="description" value={idea} />
+              <input type="hidden" name="notes" value={idea} />
+              <input type="hidden" name="inquiry_details" value={idea} />
+              <input type="hidden" name="user_message" value={idea} />
+              <input type="hidden" name="body" value={idea} />
+              <input type="hidden" name="text" value={idea} />
+              <input type="hidden" name="summary" value={`Inquiry from ${name.trim()} (${email.trim()})\nServices: ${selectedServices.join(", ")}\nBudget: ${customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible")}\nIdea: ${idea.trim()}`} />
+              <input type="hidden" name="content" value={`Inquiry from ${name.trim()} (${email.trim()})\nServices: ${selectedServices.join(", ")}\nBudget: ${customBudget.trim() ? `₹ ${customBudget.trim()}` : (budget || "Flexible")}\nIdea: ${idea.trim()}`} />
               
               {/* Form Title */}
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
@@ -505,6 +523,8 @@ export default function ContactUs23() {
                   <span>PROJECT IDEA & DETAILS *</span>
                 </label>
                 <textarea
+                  name="message"
+                  id="message"
                   rows={4}
                   required
                   value={idea}
