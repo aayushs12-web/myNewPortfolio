@@ -235,7 +235,7 @@ export default function ContactUs23() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border border-[#BE93FD]/30 text-[#BE93FD] text-xs font-mono-tech font-bold uppercase mb-4 shadow-[0_0_15px_rgba(190,147,253,0.25)]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border border-[#BE93FD]/30 text-[#BE93FD] text-xs font-display font-bold uppercase mb-4 shadow-[0_0_15px_rgba(190,147,253,0.25)]"
           >
             <Sparkles className="w-4 h-4 text-[#FF6F91] animate-spin-slow" />
             <span>LET'S BUILD SOMETHING GREAT</span>
@@ -270,7 +270,7 @@ export default function ContactUs23() {
 
             <div className="space-y-6 relative z-10">
               {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 text-[#10B981] text-xs font-mono-tech font-semibold">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 text-[#10B981] text-xs font-display font-bold">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
@@ -294,8 +294,8 @@ export default function ContactUs23() {
                     <Globe className="w-6 h-6 animate-pulse" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-mono-tech text-[#BE93FD] uppercase tracking-wider font-bold">LOCATION & WORK MODE</span>
-                    <span className="text-sm sm:text-base font-bold text-white mt-0.5">
+                    <span className="text-[10px] font-display text-[#BE93FD] uppercase tracking-wider font-bold">LOCATION & WORK MODE</span>
+                    <span className="text-sm sm:text-base font-bold text-white mt-0.5 font-display">
                       India — Available Worldwide Remote
                     </span>
                   </div>
@@ -307,19 +307,19 @@ export default function ContactUs23() {
                 <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-1">
                   <div className="flex items-center gap-2 text-[#FF6F91]">
                     <Clock className="w-4 h-4" />
-                    <span className="text-xs font-mono-tech font-bold">FAST RESPONSE</span>
+                    <span className="text-xs font-display font-bold">FAST RESPONSE</span>
                   </div>
-                  <span className="text-sm font-bold text-white mt-1">&lt; 2 Hours</span>
-                  <span className="text-[11px] text-gray-400">Guaranteed feedback</span>
+                  <span className="text-sm font-bold text-white mt-1 font-display">&lt; 2 Hours</span>
+                  <span className="text-[11px] text-gray-400 font-display">Guaranteed feedback</span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-1">
                   <div className="flex items-center gap-2 text-[#BE93FD]">
                     <ShieldCheck className="w-4 h-4" />
-                    <span className="text-xs font-mono-tech font-bold">QUALITY</span>
+                    <span className="text-xs font-display font-bold">QUALITY</span>
                   </div>
-                  <span className="text-sm font-bold text-white mt-1">Production-Ready</span>
-                  <span className="text-[11px] text-gray-400">Clean & tested code</span>
+                  <span className="text-sm font-bold text-white mt-1 font-display">Production-Ready</span>
+                  <span className="text-[11px] text-gray-400 font-display">Clean & tested code</span>
                 </div>
               </div>
             </div>
@@ -327,8 +327,8 @@ export default function ContactUs23() {
             {/* Socials & Connect */}
             <div className="pt-6 border-t border-white/10 flex items-center justify-between relative z-10">
               <div className="flex flex-col">
-                <span className="text-xs font-mono-tech text-gray-300 font-bold uppercase">CONNECT WITH ME</span>
-                <span className="text-[11px] text-gray-400">Check my active code repositories</span>
+                <span className="text-xs font-display text-gray-300 font-bold uppercase">CONNECT WITH ME</span>
+                <span className="text-[11px] text-gray-400 font-display">Check my active code repositories</span>
               </div>
               <div className="flex gap-3">
                 {socials.map((s) => {
@@ -411,7 +411,7 @@ export default function ContactUs23() {
                   <Zap className="w-5 h-5 text-[#FF6F91]" />
                   <span>START A PROJECT INQUIRY</span>
                 </div>
-                <span className="text-xs font-mono-tech text-[#BE93FD] bg-[#BE93FD]/10 px-3 py-1 rounded-full border border-[#BE93FD]/20">
+                <span className="text-xs font-display text-[#BE93FD] bg-[#BE93FD]/10 px-3 py-1 rounded-full border border-[#BE93FD]/20 font-bold">
                   STEP-BY-STEP
                 </span>
               </div>
@@ -419,7 +419,7 @@ export default function ContactUs23() {
               {/* Name & Email inputs */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-mono-tech text-gray-300 font-bold uppercase flex items-center gap-1.5">
+                  <label className="text-xs font-display text-gray-300 font-bold uppercase flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5 text-[#BE93FD]" />
                     <span>YOUR NAME *</span>
                   </label>
@@ -428,13 +428,13 @@ export default function ContactUs23() {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Alex Mercer"
-                    className="w-full px-4 py-3.5 rounded-2xl bg-[#0D0814]/90 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-[#BE93FD] focus:ring-2 focus:ring-[#BE93FD]/30 transition-all text-sm font-medium"
+                    placeholder="Enter your full name"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#0D0814]/90 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-[#BE93FD] focus:ring-2 focus:ring-[#BE93FD]/30 transition-all text-sm font-display font-medium"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-mono-tech text-gray-300 font-bold uppercase flex items-center gap-1.5">
+                  <label className="text-xs font-display text-gray-300 font-bold uppercase flex items-center gap-1.5">
                     <Mail className="w-3.5 h-3.5 text-[#FF6F91]" />
                     <span>YOUR EMAIL *</span>
                   </label>
@@ -443,8 +443,8 @@ export default function ContactUs23() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="e.g. alex@example.com"
-                    className="w-full px-4 py-3.5 rounded-2xl bg-[#0D0814]/90 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-[#BE93FD] focus:ring-2 focus:ring-[#BE93FD]/30 transition-all text-sm font-medium"
+                    placeholder="name@example.com"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#0D0814]/90 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-[#BE93FD] focus:ring-2 focus:ring-[#BE93FD]/30 transition-all text-sm font-display font-medium"
                   />
                 </div>
               </div>
@@ -452,11 +452,11 @@ export default function ContactUs23() {
               {/* Services Selection Grid */}
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-mono-tech text-gray-300 font-bold uppercase flex items-center gap-1.5">
+                  <label className="text-xs font-display text-gray-300 font-bold uppercase flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-[#D65DB1]" />
                     <span>SERVICE WE NEED *</span>
                   </label>
-                  <span className="text-[11px] font-mono-tech text-gray-400">
+                  <span className="text-[11px] font-display text-gray-400 font-medium">
                     {selectedServices.length > 0 ? `${selectedServices.length} Selected` : "Select one or more"}
                   </span>
                 </div>
@@ -489,7 +489,7 @@ export default function ContactUs23() {
                         </div>
                         <div>
                           <span className="text-xs font-bold font-display block leading-tight">{srv.name}</span>
-                          <span className="text-[10px] text-gray-400 line-clamp-1 mt-0.5 font-light">{srv.desc}</span>
+                          <span className="text-[10px] text-gray-400 line-clamp-1 mt-0.5 font-display font-light">{srv.desc}</span>
                         </div>
                       </motion.button>
                     );
@@ -508,11 +508,11 @@ export default function ContactUs23() {
                     className="flex flex-col gap-3 overflow-hidden pt-2"
                   >
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-mono-tech text-gray-300 font-bold uppercase flex items-center gap-1.5">
+                      <label className="text-xs font-display text-gray-300 font-bold uppercase flex items-center gap-1.5">
                         <IndianRupee className="w-4 h-4 text-[#BE93FD]" />
                         <span>YOUR ESTIMATED BUDGET (RUPEES ₹) *</span>
                       </label>
-                      <span className="text-[10px] font-mono-tech text-[#BE93FD] bg-[#BE93FD]/10 px-2 py-0.5 rounded border border-[#BE93FD]/20">
+                      <span className="text-[10px] font-display text-[#BE93FD] bg-[#BE93FD]/10 px-2 py-0.5 rounded border border-[#BE93FD]/20 font-bold">
                         RUPEES CURRENCY
                       </span>
                     </div>
@@ -527,7 +527,7 @@ export default function ContactUs23() {
                             setBudget(b);
                             setCustomBudget("");
                           }}
-                          className={`px-3.5 py-2 rounded-xl text-xs font-mono-tech font-semibold transition-all cursor-pointer border ${budget === b && !customBudget
+                          className={`px-3.5 py-2 rounded-xl text-xs font-display font-bold transition-all cursor-pointer border ${budget === b && !customBudget
                               ? "bg-gradient-to-r from-[#BE93FD] to-[#D65DB1] text-[#0D0814] border-transparent shadow-[0_0_15px_rgba(214,93,177,0.4)] scale-105"
                               : "bg-[#0D0814]/80 text-gray-300 border-white/10 hover:border-[#BE93FD]/50 hover:text-white"
                             }`}
@@ -550,7 +550,7 @@ export default function ContactUs23() {
                           setBudget("");
                         }}
                         placeholder="Or enter custom budget (e.g. 45,000)"
-                        className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#0D0814]/90 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-[#BE93FD] focus:ring-2 focus:ring-[#BE93FD]/30 transition-all text-sm font-mono-tech"
+                        className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#0D0814]/90 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-[#BE93FD] focus:ring-2 focus:ring-[#BE93FD]/30 transition-all text-sm font-display font-medium"
                       />
                     </div>
                   </motion.div>
@@ -559,7 +559,7 @@ export default function ContactUs23() {
 
               {/* Message Box */}
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-mono-tech text-gray-300 font-bold uppercase flex items-center gap-1.5">
+                <label className="text-xs font-display text-gray-300 font-bold uppercase flex items-center gap-1.5">
                   <MessageSquare className="w-3.5 h-3.5 text-[#FF6F91]" />
                   <span>PROJECT IDEA & DETAILS *</span>
                 </label>
@@ -571,7 +571,7 @@ export default function ContactUs23() {
                   value={idea}
                   onChange={(e) => setIdea(e.target.value)}
                   placeholder="Describe your project vision, features, goals, or key timelines..."
-                  className="w-full px-4 py-3.5 rounded-2xl bg-[#0D0814]/90 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-[#BE93FD] focus:ring-2 focus:ring-[#BE93FD]/30 transition-all text-sm font-medium resize-none"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-[#0D0814]/90 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-[#BE93FD] focus:ring-2 focus:ring-[#BE93FD]/30 transition-all text-sm font-display font-medium resize-none"
                 />
               </div>
 

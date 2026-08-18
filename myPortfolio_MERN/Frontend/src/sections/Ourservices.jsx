@@ -127,7 +127,7 @@ function ServiceCard({ service, isHovered, isAnyHovered, onMouseEnter, onMouseLe
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className={`perspective-1000 w-full h-[395px] sm:h-[415px] transition-all duration-400 ease-out ${focusBlurClasses}`}
+      className={`perspective-1000 w-full h-[395px] sm:h-[415px] rounded-3xl transition-all duration-400 ease-out ${focusBlurClasses}`}
     >
       <motion.div
         animate={{
@@ -258,6 +258,16 @@ export default function Services() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [sliderHoveredId, setSliderHoveredId] = useState(null);
   const [gridHoveredId, setGridHoveredId] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Auto-rotate 3.5 seconds left to right
   useEffect(() => {
@@ -309,30 +319,30 @@ export default function Services() {
           </p>
         </div>
 
-        {/* FULL-WIDTH 3D CURVE SLIDER (Touching left & right viewport edges) */}
+        {/* FULL-WIDTH 3D CURVE SLIDER */}
         <div className="w-full relative py-8 flex flex-col items-center justify-center overflow-hidden">
-          {/* Edge Blur Curtain Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[#0D0814] via-[#0D0814]/90 to-transparent z-40 pointer-events-none backdrop-blur-[4px]" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#0D0814] via-[#0D0814]/90 to-transparent z-40 pointer-events-none backdrop-blur-[4px]" />
+          {/* Edge Blur Curtain Overlays (Hidden on Mobile to eliminate black side bars) */}
+          <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-44 bg-gradient-to-r from-[#0D0814] via-[#0D0814]/90 to-transparent z-40 pointer-events-none backdrop-blur-[4px]" />
+          <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-44 bg-gradient-to-l from-[#0D0814] via-[#0D0814]/90 to-transparent z-40 pointer-events-none backdrop-blur-[4px]" />
 
           {/* Navigation Control Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 sm:left-10 top-1/2 -translate-y-1/2 z-50 p-3.5 sm:p-4 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] hover:text-[#FF6F91] hover:scale-115 hover:border-[#D65DB1] transition-all duration-300 cursor-pointer shadow-2xl"
+            className="absolute left-1 sm:left-10 top-1/2 -translate-y-1/2 z-50 p-2.5 sm:p-4 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] hover:text-[#FF6F91] hover:scale-115 hover:border-[#D65DB1] transition-all duration-300 cursor-pointer shadow-2xl"
             aria-label="Previous Service"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 z-50 p-3.5 sm:p-4 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] hover:text-[#FF6F91] hover:scale-115 hover:border-[#D65DB1] transition-all duration-300 cursor-pointer shadow-2xl"
+            className="absolute right-1 sm:right-10 top-1/2 -translate-y-1/2 z-50 p-2.5 sm:p-4 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] hover:text-[#FF6F91] hover:scale-115 hover:border-[#D65DB1] transition-all duration-300 cursor-pointer shadow-2xl"
             aria-label="Next Service"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Single-Line 3D Arc Container */}
-          <div className="w-full h-[480px] sm:h-[510px] md:h-[530px] relative flex items-center justify-center perspective-2000 py-4">
+          <div className="w-full h-[470px] sm:h-[510px] md:h-[530px] relative flex items-center justify-center perspective-2000 py-4">
             {services.map((service, index) => {
               const count = services.length;
               let offset = (index - activeIndex) % count;
@@ -343,12 +353,12 @@ export default function Services() {
 
               const isCenter = offset === 0;
 
-              const translateX = offset * 310;
-              const translateZ = isCenter ? 70 : -Math.abs(offset) * 190;
-              const rotateY = offset * -32;
+              const translateX = offset * (isMobile ? 230 : 310);
+              const translateZ = isCenter ? 70 : -Math.abs(offset) * (isMobile ? 120 : 190);
+              const rotateY = offset * (isMobile ? -20 : -32);
               const rotateX = isCenter ? 0 : 4;
-              const scale = isCenter ? 1.08 : 0.84 - Math.abs(offset) * 0.1;
-              const opacity = isCenter ? 1 : 0.62 - Math.abs(offset) * 0.18;
+              const scale = isCenter ? (isMobile ? 1.02 : 1.08) : (isMobile ? 0.78 : 0.84 - Math.abs(offset) * 0.1);
+              const opacity = isCenter ? 1 : (isMobile ? 0.25 : 0.62 - Math.abs(offset) * 0.18);
               const zIndex = 50 - Math.abs(offset) * 10;
 
               return (
@@ -372,7 +382,7 @@ export default function Services() {
                     transformStyle: "preserve-3d",
                     zIndex: zIndex,
                   }}
-                  className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-[290px] sm:w-[350px]"
+                  className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-[calc(100vw-3.8rem)] max-w-[330px] sm:w-[350px]"
                 >
                   <ServiceCard
                     service={service}

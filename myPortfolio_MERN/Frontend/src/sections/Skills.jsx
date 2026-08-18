@@ -99,7 +99,7 @@ export default function Skills() {
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-10 px-4 sm:px-8">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 px-3 sm:px-8">
           {categories.map((cat) => {
             const IconComp = cat.icon;
             const isActive = activeTab === cat.id;
@@ -107,24 +107,24 @@ export default function Skills() {
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-mono-tech text-xs font-bold uppercase transition-all duration-300 cursor-pointer ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl font-mono-tech text-[11px] sm:text-xs font-bold uppercase transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] text-[#0D0814] shadow-[0_0_20px_rgba(214,93,177,0.4)] scale-105"
                     : "glass-card text-gray-300 hover:text-white hover:border-[#BE93FD]/50"
                 }`}
               >
-                <IconComp className="w-4 h-4" />
+                <IconComp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span>{cat.label}</span>
               </button>
             );
           })}
         </div>
 
-        {/* ================= FULL-WIDTH EDGE-TO-EDGE MARQUEE (LEFT TO RIGHT, AMPLE VERTICAL PADDING TO PREVENT CLIPPING) ================= */}
-        <div className="w-full relative py-12 sm:py-16 overflow-hidden">
-          {/* Subtle Lightened Edge Fade Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#0D0814]/70 to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#0D0814]/70 to-transparent z-20 pointer-events-none" />
+        {/* ================= FULL-WIDTH EDGE-TO-EDGE MARQUEE ================= */}
+        <div className="w-full relative py-8 sm:py-16 overflow-hidden">
+          {/* Subtle Lightened Edge Fade Overlays (Desktop Only to prevent Mobile Blackouts) */}
+          <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-[#0D0814]/70 to-transparent z-20 pointer-events-none" />
+          <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-[#0D0814]/70 to-transparent z-20 pointer-events-none" />
 
           {/* Continuous Ultra-Slow Left-to-Right Moving Track */}
           <div className="flex overflow-hidden relative w-full py-4">
@@ -137,19 +137,19 @@ export default function Skills() {
                 ease: "linear",
                 duration: 75,
               }}
-              className="flex items-center gap-16 sm:gap-20 shrink-0 pr-16 sm:pr-20"
+              className="flex items-center gap-8 sm:gap-20 shrink-0 pr-8 sm:pr-20"
             >
               {marqueeItems.map((item, index) => {
                 const IconComp = item.icon;
                 return (
                   <div
                     key={index}
-                    className="flex flex-col items-center justify-center gap-3 group/icon transition-transform duration-300 hover:scale-125 cursor-pointer shrink-0 py-2"
+                    className="flex flex-col items-center justify-center gap-2 sm:gap-3 group/icon transition-transform duration-300 hover:scale-125 cursor-pointer shrink-0 py-2"
                   >
-                    <div className="p-2 bg-transparent transition-all duration-300">
-                      <IconComp className={`w-14 h-14 sm:w-16 sm:h-16 ${item.color} filter drop-shadow-[0_0_16px_rgba(0,229,255,0.75)]`} />
+                    <div className="p-1.5 sm:p-2 bg-transparent transition-all duration-300">
+                      <IconComp className={`w-12 h-12 sm:w-16 sm:h-16 ${item.color} filter drop-shadow-[0_0_16px_rgba(0,229,255,0.75)]`} />
                     </div>
-                    <span className="font-mono-tech font-extrabold text-sm sm:text-base text-[#00E5FF] tracking-wider uppercase group-hover/icon:text-[#FF6F91] transition-colors whitespace-nowrap">
+                    <span className="font-mono-tech font-extrabold text-xs sm:text-base text-[#00E5FF] tracking-wider uppercase group-hover/icon:text-[#FF6F91] transition-colors whitespace-nowrap">
                       {item.name}
                     </span>
                   </div>

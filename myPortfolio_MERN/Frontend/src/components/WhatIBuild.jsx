@@ -92,6 +92,16 @@ const buildItems = [
 export default function WhatIBuild() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [gridHoveredId, setGridHoveredId] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Smooth continuous transition every 3.5 seconds
   useEffect(() => {
@@ -136,30 +146,30 @@ export default function WhatIBuild() {
           <div className="h-0.5 w-24 rounded-full bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] mt-3 mb-2 shadow-[0_0_12px_#D65DB1]" />
         </div>
 
-        {/* FULL-WIDTH 3D CURVE CAROUSEL (Edge-to-Edge touching left & right sides) */}
+        {/* FULL-WIDTH 3D CURVE CAROUSEL */}
         <div className="w-full relative py-8 my-4 flex flex-col items-center justify-center overflow-hidden">
-          {/* Edge Blur Curtain Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[#0D0814] via-[#0D0814]/90 to-transparent z-40 pointer-events-none backdrop-blur-[4px]" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#0D0814] via-[#0D0814]/90 to-transparent z-40 pointer-events-none backdrop-blur-[4px]" />
+          {/* Edge Blur Curtain Overlays (Hidden on Mobile to eliminate black side bars) */}
+          <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-44 bg-gradient-to-r from-[#0D0814] via-[#0D0814]/90 to-transparent z-40 pointer-events-none backdrop-blur-[4px]" />
+          <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-44 bg-gradient-to-l from-[#0D0814] via-[#0D0814]/90 to-transparent z-40 pointer-events-none backdrop-blur-[4px]" />
 
           {/* Navigation Control Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 sm:left-10 top-1/2 -translate-y-1/2 z-50 p-3.5 sm:p-4 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] hover:text-[#FF6F91] hover:scale-115 hover:border-[#D65DB1] transition-all duration-300 cursor-pointer shadow-2xl"
+            className="absolute left-1 sm:left-10 top-1/2 -translate-y-1/2 z-50 p-2.5 sm:p-4 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] hover:text-[#FF6F91] hover:scale-115 hover:border-[#D65DB1] transition-all duration-300 cursor-pointer shadow-2xl"
             aria-label="Previous Slide"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 z-50 p-3.5 sm:p-4 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] hover:text-[#FF6F91] hover:scale-115 hover:border-[#D65DB1] transition-all duration-300 cursor-pointer shadow-2xl"
+            className="absolute right-1 sm:right-10 top-1/2 -translate-y-1/2 z-50 p-2.5 sm:p-4 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] hover:text-[#FF6F91] hover:scale-115 hover:border-[#D65DB1] transition-all duration-300 cursor-pointer shadow-2xl"
             aria-label="Next Slide"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* 3D Edge-to-Edge Stage Container */}
-          <div className="w-full h-[280px] sm:h-[320px] relative flex items-center justify-center perspective-2000 overflow-hidden">
+          <div className="w-full h-[290px] sm:h-[320px] relative flex items-center justify-center perspective-2000 overflow-hidden">
             {buildItems.map((item, index) => {
               const count = buildItems.length;
               let offset = (index - activeIndex) % count;
@@ -171,12 +181,12 @@ export default function WhatIBuild() {
               const isCenter = offset === 0;
               const Icon = item.icon;
 
-              const translateX = offset * 290;
-              const translateZ = isCenter ? 70 : -Math.abs(offset) * 180;
-              const rotateY = offset * -32;
+              const translateX = offset * (isMobile ? 225 : 290);
+              const translateZ = isCenter ? 70 : -Math.abs(offset) * (isMobile ? 120 : 180);
+              const rotateY = offset * (isMobile ? -20 : -32);
               const rotateX = isCenter ? 0 : 4;
-              const scale = isCenter ? 1.15 : 0.82 - Math.abs(offset) * 0.1;
-              const opacity = isCenter ? 1 : 0.6 - Math.abs(offset) * 0.18;
+              const scale = isCenter ? (isMobile ? 1.02 : 1.15) : (isMobile ? 0.76 : 0.82 - Math.abs(offset) * 0.1);
+              const opacity = isCenter ? 1 : (isMobile ? 0.25 : 0.6 - Math.abs(offset) * 0.18);
               const zIndex = 50 - Math.abs(offset) * 10;
 
               return (
@@ -200,29 +210,29 @@ export default function WhatIBuild() {
                     transformStyle: "preserve-3d",
                     zIndex: zIndex,
                   }}
-                  className={`absolute top-1/2 -translate-y-1/2 w-[290px] sm:w-[350px] p-6 sm:p-7 rounded-3xl cursor-pointer transition-colors duration-500 border ${
+                  className={`absolute top-1/2 -translate-y-1/2 w-[calc(100vw-3.8rem)] max-w-[320px] sm:w-[350px] p-4 sm:p-7 rounded-3xl cursor-pointer transition-colors duration-500 border ${
                     isCenter
                       ? "glass-card border-[#FF6F91] shadow-[0_25px_60px_rgba(255,111,145,0.45)] bg-[#1A102A]/90 backdrop-blur-2xl"
                       : "glass-card border-[#BE93FD]/30 bg-[#140C20]/70"
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div
-                      className={`w-12 h-12 rounded-2xl flex items-center justify-center border transition-all duration-500 ${
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center border transition-all duration-500 ${
                         isCenter
                           ? "bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] text-[#0D0814] border-white shadow-[0_0_20px_rgba(255,111,145,0.5)] scale-110"
                           : "bg-[#845EC2]/20 text-[#BE93FD] border-[#BE93FD]/30"
                       }`}
                     >
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
 
-                    <span className="px-3 py-1 rounded-full bg-[#160E22] border border-[#BE93FD]/30 text-[#BE93FD] font-mono-tech text-[10px] font-bold uppercase">
+                    <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#160E22] border border-[#BE93FD]/30 text-[#BE93FD] font-mono-tech text-[9px] sm:text-[10px] font-bold uppercase">
                       {item.badge}
                     </span>
                   </div>
 
-                  <h3 className="font-display font-extrabold text-lg sm:text-xl text-white mb-2 leading-snug">
+                  <h3 className="font-display font-extrabold text-base sm:text-xl text-white mb-1.5 sm:mb-2 leading-snug">
                     {item.title}
                   </h3>
 
