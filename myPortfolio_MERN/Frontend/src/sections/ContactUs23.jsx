@@ -226,7 +226,7 @@ export default function ContactUs23() {
   };
 
   return (
-    <section id="contact" className="relative w-full py-10 sm:py-16 px-4 sm:px-8 overflow-hidden">
+    <section id="contact" aria-label="Contact and Project Inquiry Form" className="relative w-full py-10 sm:py-16 px-4 sm:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Section Header */}
@@ -251,7 +251,7 @@ export default function ContactUs23() {
           </motion.h2>
 
           <p className="mt-4 text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed font-light">
-            Ready to bring your next idea to life? Select your required services, outline your budget, and send over your vision!
+            Ready to discuss a web application project, custom e-commerce store, or freelance opportunity in Pali, Rajasthan or remotely worldwide? Select your required services, outline your budget, and submit your inquiry!
           </p>
         </div>
 
@@ -283,7 +283,7 @@ export default function ContactUs23() {
                   Let's Collaborate
                 </h3>
                 <p className="mt-2 text-gray-400 text-xs sm:text-sm leading-relaxed">
-                  I specialize in crafting high-performance Web Applications, Landing Pages, E-commerce Platforms, and Cloud Solutions.
+                  I specialize in crafting high-performance Web Applications, Landing Pages, E-commerce Platforms, and Cloud Solutions for clients in Pali, Rajasthan and across the globe.
                 </p>
               </div>
 
@@ -296,7 +296,7 @@ export default function ContactUs23() {
                   <div className="flex flex-col">
                     <span className="text-[10px] font-display text-[#BE93FD] uppercase tracking-wider font-bold">LOCATION & WORK MODE</span>
                     <span className="text-sm sm:text-base font-bold text-white mt-0.5 font-display">
-                      India — Available Worldwide Remote
+                      Pali, Rajasthan, India — Local & Worldwide Remote
                     </span>
                   </div>
                 </div>

@@ -1,0 +1,343 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+export const SEO_CONFIGS = {
+  "/": {
+    title: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
+    description:
+      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
+    canonical: "https://aayushlabs.vercel.app/home",
+    ogType: "website",
+    ogTitle: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
+    ogDescription:
+      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
+    twitterTitle: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
+    twitterDescription:
+      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aayushlabs.vercel.app/home"
+        }
+      ]
+    }
+  },
+  "/home": {
+    title: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
+    description:
+      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
+    canonical: "https://aayushlabs.vercel.app/home",
+    ogType: "website",
+    ogTitle: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
+    ogDescription:
+      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
+    twitterTitle: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
+    twitterDescription:
+      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aayushlabs.vercel.app/home"
+        }
+      ]
+    }
+  },
+  "/services": {
+    title: "Web Development Services in Pali, Rajasthan | MERN & E-Commerce",
+    description:
+      "Web development services by Aayush Sharma in Pali, Rajasthan: full-stack MERN web apps, custom e-commerce stores, responsive landing pages, and SEO optimization.",
+    canonical: "https://aayushlabs.vercel.app/services",
+    ogType: "website",
+    ogTitle: "Web Development Services in Pali, Rajasthan | MERN & E-Commerce",
+    ogDescription:
+      "Web development services by Aayush Sharma in Pali, Rajasthan: full-stack MERN web apps, custom e-commerce stores, responsive landing pages, and SEO optimization.",
+    twitterTitle: "Web Development Services in Pali, Rajasthan | MERN & E-Commerce",
+    twitterDescription:
+      "Web development services by Aayush Sharma in Pali, Rajasthan: full-stack MERN web apps, custom e-commerce stores, responsive landing pages, and SEO optimization.",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://aayushlabs.vercel.app/services#webpage",
+          "url": "https://aayushlabs.vercel.app/services",
+          "name": "Web Development Services in Pali, Rajasthan | MERN & E-Commerce",
+          "description": "Web development services by Aayush Sharma in Pali, Rajasthan: full-stack MERN web apps, custom e-commerce stores, responsive landing pages, and SEO optimization.",
+          "about": {
+            "@id": "https://aayushlabs.vercel.app/#person"
+          },
+          "isPartOf": {
+            "@id": "https://aayushlabs.vercel.app/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://aayushlabs.vercel.app/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://aayushlabs.vercel.app/services"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "/service": {
+    title: "Web Development Services in Pali, Rajasthan | MERN & E-Commerce",
+    description:
+      "Web development services by Aayush Sharma in Pali, Rajasthan: full-stack MERN web apps, custom e-commerce stores, responsive landing pages, and SEO optimization.",
+    canonical: "https://aayushlabs.vercel.app/services",
+    ogType: "website",
+    ogTitle: "Web Development Services in Pali, Rajasthan | MERN & E-Commerce",
+    ogDescription:
+      "Web development services by Aayush Sharma in Pali, Rajasthan: full-stack MERN web apps, custom e-commerce stores, responsive landing pages, and SEO optimization.",
+    twitterTitle: "Web Development Services in Pali, Rajasthan | MERN & E-Commerce",
+    twitterDescription:
+      "Web development services by Aayush Sharma in Pali, Rajasthan: full-stack MERN web apps, custom e-commerce stores, responsive landing pages, and SEO optimization.",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://aayushlabs.vercel.app/services#webpage",
+          "url": "https://aayushlabs.vercel.app/services",
+          "name": "Web Development Services in Pali, Rajasthan | MERN & E-Commerce",
+          "description": "Web development services by Aayush Sharma in Pali, Rajasthan: full-stack MERN web apps, custom e-commerce stores, responsive landing pages, and SEO optimization.",
+          "about": {
+            "@id": "https://aayushlabs.vercel.app/#person"
+          },
+          "isPartOf": {
+            "@id": "https://aayushlabs.vercel.app/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://aayushlabs.vercel.app/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://aayushlabs.vercel.app/services"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "/about": {
+    title: "About Aayush Sharma | Full-Stack Developer in Pali, Rajasthan",
+    description:
+      "Learn about Aayush Sharma, a Full-Stack MERN Developer from Pali, Rajasthan, experienced in React, Node.js, Express, MongoDB, Tailwind CSS, and scalable REST API development.",
+    canonical: "https://aayushlabs.vercel.app/about",
+    ogType: "profile",
+    ogTitle: "About Aayush Sharma | Full-Stack Developer in Pali, Rajasthan",
+    ogDescription:
+      "Learn about Aayush Sharma, a Full-Stack MERN Developer from Pali, Rajasthan, experienced in React, Node.js, Express, MongoDB, Tailwind CSS, and scalable REST API development.",
+    twitterTitle: "About Aayush Sharma | Full-Stack Developer in Pali, Rajasthan",
+    twitterDescription:
+      "Learn about Aayush Sharma, a Full-Stack MERN Developer from Pali, Rajasthan, experienced in React, Node.js, Express, MongoDB, Tailwind CSS, and scalable REST API development.",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://aayushlabs.vercel.app/about#profilepage",
+          "url": "https://aayushlabs.vercel.app/about",
+          "name": "About Aayush Sharma | Full-Stack Developer in Pali, Rajasthan",
+          "description": "Learn about Aayush Sharma, a Full-Stack MERN Developer from Pali, Rajasthan, experienced in React, Node.js, Express, MongoDB, Tailwind CSS, and scalable REST API development.",
+          "mainEntity": {
+            "@id": "https://aayushlabs.vercel.app/#person"
+          },
+          "isPartOf": {
+            "@id": "https://aayushlabs.vercel.app/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://aayushlabs.vercel.app/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About Me",
+              "item": "https://aayushlabs.vercel.app/about"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "/contact": {
+    title: "Contact Aayush Sharma | Web Developer in Pali, Rajasthan",
+    description:
+      "Get in touch with Aayush Sharma, a Full-Stack MERN Developer based in Pali, Rajasthan, for freelance web development, custom e-commerce stores, and web applications.",
+    canonical: "https://aayushlabs.vercel.app/contact",
+    ogType: "website",
+    ogTitle: "Contact Aayush Sharma | Web Developer in Pali, Rajasthan",
+    ogDescription:
+      "Get in touch with Aayush Sharma, a Full-Stack MERN Developer based in Pali, Rajasthan, for freelance web development, custom e-commerce stores, and web applications.",
+    twitterTitle: "Contact Aayush Sharma | Web Developer in Pali, Rajasthan",
+    twitterDescription:
+      "Get in touch with Aayush Sharma, a Full-Stack MERN Developer based in Pali, Rajasthan, for freelance web development, custom e-commerce stores, and web applications.",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ContactPage",
+          "@id": "https://aayushlabs.vercel.app/contact#contactpage",
+          "url": "https://aayushlabs.vercel.app/contact",
+          "name": "Contact Aayush Sharma | Web Developer in Pali, Rajasthan",
+          "description": "Get in touch with Aayush Sharma, a Full-Stack MERN Developer based in Pali, Rajasthan, for freelance web development, custom e-commerce stores, and web applications.",
+          "mainEntity": {
+            "@id": "https://aayushlabs.vercel.app/#person"
+          },
+          "isPartOf": {
+            "@id": "https://aayushlabs.vercel.app/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://aayushlabs.vercel.app/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact Us",
+              "item": "https://aayushlabs.vercel.app/contact"
+            }
+          ]
+        }
+      ]
+    }
+  },
+};
+
+const DEFAULT_IMAGE = "https://aayushlabs.vercel.app/favicon.png";
+const SITE_NAME = "Aayush Sharma Portfolio";
+
+function setOrCreateMeta(attrName, attrVal, content) {
+  let element = document.querySelector(`meta[${attrName}="${attrVal}"]`);
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attrName, attrVal);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("content", content);
+}
+
+function setOrCreateLink(rel, href) {
+  let element = document.querySelector(`link[rel="${rel}"]`);
+  if (!element) {
+    element = document.createElement("link");
+    element.setAttribute(rel, rel);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("href", href);
+}
+
+function setOrCreateJsonLd(id, data) {
+  let script = document.getElementById(id);
+  if (!script) {
+    script = document.createElement("script");
+    script.id = id;
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(data, null, 2);
+}
+
+export function updatePageMetadata(pathname) {
+  const meta = SEO_CONFIGS[pathname] || SEO_CONFIGS["/home"];
+
+  // 1. Document Title
+  document.title = meta.title;
+
+  // 2. Meta Description, Author, Robots, Theme-color
+  setOrCreateMeta("name", "description", meta.description);
+  setOrCreateMeta("name", "author", "Aayush Sharma");
+  setOrCreateMeta(
+    "name",
+    "robots",
+    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  );
+  setOrCreateMeta("name", "theme-color", "#0D0814");
+
+  // 3. Canonical URL
+  setOrCreateLink("canonical", meta.canonical);
+
+  // 4. Open Graph Metadata
+  setOrCreateMeta("property", "og:site_name", SITE_NAME);
+  setOrCreateMeta("property", "og:type", meta.ogType || "website");
+  setOrCreateMeta("property", "og:locale", "en_US");
+  setOrCreateMeta("property", "og:title", meta.ogTitle || meta.title);
+  setOrCreateMeta("property", "og:description", meta.ogDescription || meta.description);
+  setOrCreateMeta("property", "og:url", meta.canonical);
+  setOrCreateMeta("property", "og:image", DEFAULT_IMAGE);
+
+  // 5. Twitter / X Metadata
+  setOrCreateMeta("name", "twitter:card", "summary");
+  setOrCreateMeta("name", "twitter:title", meta.twitterTitle || meta.title);
+  setOrCreateMeta("name", "twitter:description", meta.twitterDescription || meta.description);
+  setOrCreateMeta("name", "twitter:image", DEFAULT_IMAGE);
+
+  // 6. Route-Specific Dynamic JSON-LD Structured Data
+  if (meta.schema) {
+    setOrCreateJsonLd("route-specific-schema", meta.schema);
+  }
+}
+
+export default function SEO() {
+  const location = useLocation();
+
+  useEffect(() => {
+    updatePageMetadata(location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    // Listen to custom route sync events triggered during scroll-based history replacement
+    const handleRouteSync = (event) => {
+      if (event.detail && event.detail.pathname) {
+        updatePageMetadata(event.detail.pathname);
+      }
+    };
+
+    window.addEventListener("portfolio:route-change", handleRouteSync);
+    return () => window.removeEventListener("portfolio:route-change", handleRouteSync);
+  }, []);
+
+  return null;
+}

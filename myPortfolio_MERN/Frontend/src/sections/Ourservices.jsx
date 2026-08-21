@@ -21,7 +21,7 @@ const services = [
     title: "Full-Stack MERN Web App",
     icon: Code2,
     image:
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop",
     description:
       "High-performance, full-stack web applications using MongoDB, Express, React 19, and Node.js with secure REST APIs.",
     buttonLabel: "Build App",
@@ -38,7 +38,7 @@ const services = [
     title: "E-Commerce Websites",
     icon: ShoppingBag,
     image:
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=600&auto=format&fit=crop",
     description:
       "Custom, high-converting online stores with shopping carts, secure checkout gateways, order tracking, and product management.",
     buttonLabel: "Build Store",
@@ -55,7 +55,7 @@ const services = [
     title: "Landing Pages & UI/UX",
     icon: Rocket,
     image:
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=600&auto=format&fit=crop",
     description:
       "Pixel-perfect, high-converting landing pages built with fluid glassmorphism, responsive Tailwind CSS, and 3D micro-animations.",
     buttonLabel: "Design Landing Page",
@@ -72,7 +72,7 @@ const services = [
     title: "SEO & Performance Optimization",
     icon: Search,
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
     description:
       "Boosting search ranking, Lighthouse scores, speed optimization, technical SEO meta tags, and structured schema data.",
     buttonLabel: "Optimize Site",
@@ -89,7 +89,7 @@ const services = [
     title: "Cloud DevOps & Containers",
     icon: Cloud,
     image:
-      "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=600&auto=format&fit=crop",
     description:
       "Automating deployment pipelines with Docker containerization, Kubernetes orchestration, AWS Cloud infrastructure, and CI/CD.",
     buttonLabel: "Deploy Cloud System",
@@ -152,7 +152,8 @@ function ServiceCard({ service, isHovered, isAnyHovered, onMouseEnter, onMouseLe
               setIsFlipped(true);
             }}
             className="absolute top-3.5 right-3.5 z-30 flex items-center gap-1.5 px-3 py-1 rounded-full glass-card border border-[#BE93FD]/40 text-[#BE93FD] text-[10px] font-mono-tech font-bold uppercase hover:border-[#FF6F91] hover:bg-[#D65DB1]/30 transition-all cursor-pointer shadow-lg"
-            title="Toggle Card Details"
+            title={`View deliverables for ${service.title}`}
+            aria-label={`View deliverables for ${service.title}`}
           >
             <Rotate3D className="w-3.5 h-3.5 text-[#FF6F91]" />
             <span>DETAILS</span>
@@ -163,6 +164,7 @@ function ServiceCard({ service, isHovered, isAnyHovered, onMouseEnter, onMouseLe
             <img
               src={service.image}
               alt={service.title}
+              loading="lazy"
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-85 group-hover:opacity-100"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D0814] via-[#0D0814]/40 to-transparent" />
@@ -194,13 +196,17 @@ function ServiceCard({ service, isHovered, isAnyHovered, onMouseEnter, onMouseLe
               </div>
             </div>
 
-            <button
-              onClick={scrollToContact}
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToContact();
+              }}
               className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] text-[#0D0814] font-display font-extrabold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(214,93,177,0.35)] hover:shadow-[0_0_30px_rgba(255,111,145,0.65)] hover:scale-[1.02] transition-all duration-300 cursor-pointer"
             >
               <span>{service.buttonLabel}</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
         </div>
 
@@ -220,7 +226,7 @@ function ServiceCard({ service, isHovered, isAnyHovered, onMouseEnter, onMouseLe
                     e.stopPropagation();
                     setIsFlipped(false);
                   }}
-                  className="px-2.5 py-0.5 rounded-full bg-white/10 text-[10px] font-mono-tech text-gray-200 hover:text-white hover:bg-white/20 transition-colors"
+                  className="px-2.5 py-0.5 rounded-full bg-white/10 text-[10px] font-mono-tech text-gray-200 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
                 >
                   ← BACK
                 </button>
@@ -240,13 +246,17 @@ function ServiceCard({ service, isHovered, isAnyHovered, onMouseEnter, onMouseLe
               </ul>
             </div>
 
-            <button
-              onClick={scrollToContact}
-              className="mt-4 w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-[#BE93FD] to-[#FF6F91] text-[#0D0814] font-display font-extrabold text-xs uppercase tracking-wider shadow-lg"
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToContact();
+              }}
+              className="mt-4 w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-[#BE93FD] to-[#FF6F91] text-[#0D0814] font-display font-extrabold text-xs uppercase tracking-wider shadow-lg cursor-pointer"
             >
               <span>BOOK THIS SERVICE</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
         )}
       </motion.div>
@@ -288,6 +298,7 @@ export default function Services() {
   return (
     <section
       id="ourservices"
+      aria-label="Web Development Services by Aayush Sharma"
       className="relative w-full py-10 sm:py-16 flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="w-full relative z-10 flex flex-col items-center">
@@ -315,7 +326,7 @@ export default function Services() {
           <div className="h-0.5 w-24 rounded-full bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] mt-3 mb-2 shadow-[0_0_12px_#D65DB1]" />
 
           <p className="mt-3 text-gray-300 text-sm sm:text-base leading-relaxed">
-            High-performance web applications, custom e-commerce platforms, SEO optimization, and cloud DevOps engineering built to scale.
+            High-performance web applications, custom e-commerce stores, responsive landing pages, and cloud engineering tailored for businesses in Pali, Rajasthan and worldwide.
           </p>
         </div>
 

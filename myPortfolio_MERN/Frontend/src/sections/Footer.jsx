@@ -79,9 +79,9 @@ export default function Footer() {
             </div>
 
             {/* Centered Name */}
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase mt-1">
+            <div className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase mt-1">
               Aayush <span className="bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] bg-clip-text text-transparent">Sharma</span>
-            </h2>
+            </div>
 
             {/* Title: FULL STACK DEVELOPER */}
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-white/[0.03] border border-white/10 text-xs sm:text-sm font-mono-tech font-bold text-[#BE93FD] uppercase tracking-widest shadow-inner">
@@ -105,6 +105,54 @@ export default function Footer() {
             <Quote className="w-7 h-7 text-[#FF6F91]/30 absolute bottom-3 right-4" />
           </motion.div>
 
+          {/* Semantic Internal Navigation Links for AEO & Internal Discovery */}
+          <nav aria-label="Footer Navigation" className="flex flex-wrap items-center justify-center gap-6 text-xs font-mono-tech font-bold text-gray-300 uppercase tracking-wider mb-6">
+            <a
+              href="/home"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/home");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="hover:text-[#BE93FD] transition-colors"
+            >
+              Home
+            </a>
+            <a
+              href="/services"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/services");
+                document.getElementById("ourservices")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="hover:text-[#BE93FD] transition-colors"
+            >
+              Services
+            </a>
+            <a
+              href="/about"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/about");
+                document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="hover:text-[#BE93FD] transition-colors"
+            >
+              About Me
+            </a>
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/contact");
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="hover:text-[#BE93FD] transition-colors"
+            >
+              Contact
+            </a>
+          </nav>
+
           {/* Social Profile Links */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -123,6 +171,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-gray-300 hover:text-[#FF6F91] hover:border-[#BE93FD] hover:bg-[#BE93FD]/10 hover:scale-110 transition-all duration-300 shadow-md"
                   title={s.name}
+                  aria-label={s.name}
                 >
                   <Icon className="w-5 h-5" />
                 </a>

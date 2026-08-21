@@ -120,7 +120,7 @@ export default function WhatIBuild() {
   };
 
   return (
-    <section className="w-full py-16 sm:py-24 relative overflow-hidden">
+    <section aria-label="Solutions and Web Applications I Build" className="w-full py-16 sm:py-24 relative overflow-hidden">
       <div className="w-full relative z-10 flex flex-col items-center">
         {/* Section Title Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 px-4 sm:px-8 flex flex-col items-center">
@@ -144,6 +144,10 @@ export default function WhatIBuild() {
           </motion.h2>
 
           <div className="h-0.5 w-24 rounded-full bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] mt-3 mb-2 shadow-[0_0_12px_#D65DB1]" />
+
+          <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mt-2 max-w-2xl text-center">
+            Full-stack web applications, scalable REST APIs, custom e-commerce systems, responsive landing pages, and intuitive user interfaces built for businesses in Pali, Rajasthan and clients worldwide.
+          </p>
         </div>
 
         {/* FULL-WIDTH 3D CURVE CAROUSEL */}

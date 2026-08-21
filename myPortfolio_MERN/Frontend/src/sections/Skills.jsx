@@ -74,10 +74,10 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="relative w-full py-10 sm:py-16 overflow-hidden">
+    <section id="skills" aria-label="Technical Skills and Technologies Used" className="relative w-full py-10 sm:py-16 overflow-hidden">
       <div className="w-full relative z-10 flex flex-col items-center">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 px-4 sm:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-10 px-4 sm:px-8 flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -96,6 +96,12 @@ export default function Skills() {
           >
             MY TECH <span className="bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] bg-clip-text text-transparent">ARSENAL</span>
           </motion.h2>
+
+          <div className="h-0.5 w-24 rounded-full bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] mt-3 mb-2 shadow-[0_0_12px_#D65DB1]" />
+
+          <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mt-2 max-w-2xl text-center">
+            Core frontend, backend, database, and cloud technologies used in full-stack web application development.
+          </p>
         </div>
 
         {/* Category Filter Tabs */}

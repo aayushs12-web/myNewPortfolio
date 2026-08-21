@@ -19,26 +19,34 @@ export default function Navbar() {
   const lastScrollY = useRef(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
 
-      if (currentScrollY > 120 && currentScrollY > lastScrollY.current) {
-        setVisible(false);
-      } else {
-        setVisible(true);
-      }
-      lastScrollY.current = currentScrollY;
-
-      const sections = ["home", "ourservices", "about", "skills", "contact"];
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 250 && rect.bottom >= 250) {
-            setActiveSection(sectionId);
-            break;
+          if (currentScrollY > 120 && currentScrollY > lastScrollY.current) {
+            setVisible(false);
+          } else {
+            setVisible(true);
           }
-        }
+          lastScrollY.current = currentScrollY;
+
+          const sections = ["home", "ourservices", "about", "skills", "contact"];
+          for (const sectionId of sections) {
+            const el = document.getElementById(sectionId);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= 250 && rect.bottom >= 250) {
+                setActiveSection(sectionId);
+                break;
+              }
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

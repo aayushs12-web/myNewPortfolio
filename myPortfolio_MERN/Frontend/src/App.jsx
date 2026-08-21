@@ -9,6 +9,7 @@ import Ourservices from "./sections/Ourservices";
 import ContactUs23 from "./sections/ContactUs23";
 import Footer from "./sections/Footer";
 import SectionDivider from "./components/SectionDivider";
+import SEO from "./components/SEO";
 import { Code2, Layers, Terminal, Zap, Cpu } from "lucide-react";
 
 const routeToSection = {
@@ -48,23 +49,34 @@ function MainContent({ introDone }) {
   // Keep browser address bar dynamically updated to /home, /services, /about, /skills, /contact as the user scrolls
   useEffect(() => {
     const sections = ["home", "ourservices", "about", "skills", "contact"];
+    let ticking = false;
+
     const handleScroll = () => {
-      let currentSection = "";
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 300 && rect.bottom >= 300) {
-            currentSection = sectionId;
-            break;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          let currentSection = "";
+          for (const sectionId of sections) {
+            const el = document.getElementById(sectionId);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= 300 && rect.bottom >= 300) {
+                currentSection = sectionId;
+                break;
+              }
+            }
           }
-        }
-      }
-      if (currentSection && sectionToRoute[currentSection]) {
-        const targetPath = sectionToRoute[currentSection];
-        if (window.location.pathname !== targetPath) {
-          window.history.replaceState(null, "", targetPath);
-        }
+          if (currentSection && sectionToRoute[currentSection]) {
+            const targetPath = sectionToRoute[currentSection];
+            if (window.location.pathname !== targetPath) {
+              window.history.replaceState(null, "", targetPath);
+              window.dispatchEvent(
+                new CustomEvent("portfolio:route-change", { detail: { pathname: targetPath } })
+              );
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -92,6 +104,9 @@ export default function App() {
 
   return (
     <div className="relative bg-[#081014] text-[#F4FBFB] selection:bg-[#45A9A9]/40 selection:text-[#98E8DE] min-h-screen">
+      {/* Route-Aware Dynamic SEO Management */}
+      <SEO />
+
       {/* Ambient Canvas Background */}
       <ThreeCanvasBackground />
 

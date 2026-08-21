@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow private API endpoints
+Disallow: /api/
+
+# Production Sitemap Location
+Sitemap: https://aayushlabs.vercel.app/sitemap.xml

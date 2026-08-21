@@ -20,21 +20,21 @@ const experienceSlides = [
     id: 1,
     title: "Fresher",
     subtitle: "Real-World Project Focus",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=75&w=600&auto=format&fit=crop",
     description: "Building production-ready MERN projects, mastering clean component architecture, RESTful API design, and continuous learning.",
   },
   {
     id: 2,
     title: "Full-Stack Dev",
     subtitle: "MERN & Microservices",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=75&w=600&auto=format&fit=crop",
     description: "Developing scalable backends with Node/Express/MongoDB, paired with high-performance React 19 glassmorphism interfaces.",
   },
   {
     id: 3,
     title: "DevOps & Cloud",
     subtitle: "Docker & Deployment",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=600&auto=format&fit=crop",
     description: "Containerizing services with Docker, deploying to AWS Cloud servers, and establishing automated CI/CD GitHub workflows.",
   },
 ];
@@ -45,21 +45,21 @@ const specialtySlides = [
     id: 1,
     title: "MERN Stack",
     subtitle: "Core Tech Ecosystem",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop",
     skills: ["MongoDB & Mongoose", "Express.js Framework", "React 19 & Redux", "Node.js Asynchronous Runtime"],
   },
   {
     id: 2,
     title: "Styling & UI Systems",
     subtitle: "Modern Responsive CSS",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=75&w=600&auto=format&fit=crop",
     skills: ["Tailwind CSS (v4)", "Bootstrap 5 Utilities", "Framer Motion 3D", "Vanilla CSS Design Tokens"],
   },
   {
     id: 3,
     title: "APIs & Backend",
     subtitle: "Backend & Integrations",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=75&w=600&auto=format&fit=crop",
     skills: ["RESTful API Engineering", "FastAPI Integration", "JWT & OAuth Security", "Thunder Client API Testing"],
   },
 ];
@@ -70,21 +70,21 @@ const focusSlides = [
     id: 1,
     title: "Performance & UX",
     subtitle: "Speed & Fluid Motion",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=600&auto=format&fit=crop",
     highlights: ["Lighthouse 100/100 Scores", "Fast-Loading Responsive UI", "Accessibility (a11y) Standards", "Smooth Micro-Animations"],
   },
   {
     id: 2,
     title: "Architecture",
     subtitle: "Clean & Maintainable",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=75&w=600&auto=format&fit=crop",
     highlights: ["Modular Code Base", "Scalable Database Schema", "Component Reusability", "Optimized Data Flow"],
   },
   {
     id: 3,
     title: "Product Delivery",
     subtitle: "Concept to Production",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=75&w=600&auto=format&fit=crop",
     highlights: ["Intuitive User Flows", "Robust Error Handling", "Production Cloud Deployment", "Continuous Maintenance"],
   },
 ];
@@ -104,6 +104,7 @@ export default function About() {
   return (
     <section
       id="about"
+      aria-label="About Aayush Sharma, Background and Technical Specialties"
       className="relative w-full py-10 sm:py-16 px-4 sm:px-8 overflow-hidden text-white font-sans"
     >
       <div className="max-w-7xl mx-auto relative z-10 space-y-12 sm:space-y-16">
@@ -125,7 +126,10 @@ export default function About() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/20">
                 <img
                   src={photo}
-                  alt="Aayush Sharma Full-Stack Developer"
+                  alt="Portrait photograph of Aayush Sharma, Full-Stack MERN Developer"
+                  loading="lazy"
+                  width="384"
+                  height="480"
                   className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700 filter contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D0814] via-transparent to-transparent opacity-75" />
@@ -134,7 +138,7 @@ export default function About() {
                 <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl glass-card border border-[#BE93FD]/40 backdrop-blur-xl flex items-center gap-3">
                   <div className="w-3 h-3 rounded-full bg-[#FF6F91] animate-ping" />
                   <span className="font-mono-tech text-xs text-[#BE93FD] font-bold uppercase tracking-wider">
-                    Available For Hire & Projects
+                    Pali, Rajasthan • Open to Work
                   </span>
                 </div>
               </div>
@@ -166,21 +170,22 @@ export default function About() {
 
             <div className="h-0.5 w-28 rounded-full bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] my-2 shadow-[0_0_12px_#D65DB1]" />
 
-            {/* Requested Text Paragraphs */}
+            {/* Factual, Clear Bio Paragraphs */}
             <div className="space-y-3 text-gray-200 text-sm sm:text-base leading-relaxed">
               <p>
-                I'm a Web Developer passionate about building scalable, high-performance applications with clean architecture and seamless user experiences. I work across the MERN stack along with Tailwind CSS, Bootstrap, and transforming ideas into production-ready solutions with robust APIs and intuitive interfaces.
+                Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, passionate about building scalable, high-performance web applications with clean architecture and seamless user experiences. Specializing across the MERN stack (MongoDB, Express.js, React, and Node.js) along with Tailwind CSS and Bootstrap, engineering production-ready digital solutions with secure REST APIs for clients in Rajasthan and across the globe.
               </p>
               <p className="text-gray-300 font-medium italic text-xs sm:text-sm border-l-2 border-[#BE93FD] pl-3">
-                "I'm driven by transforming ideas into scalable, user-centric products that deliver real impact through thoughtful design, performance, and reliability."
+                "Driven by transforming ideas into scalable, user-centric web products that deliver real impact through thoughtful design, performance, and reliability."
               </p>
             </div>
 
-            {/* Code Snippet Pill with Corrected role: 'Full-Stack Developer' */}
+            {/* Code Snippet Pill with Location Info */}
             <div className="p-4 rounded-2xl glass-card border border-[#BE93FD]/30 font-mono-tech text-xs text-gray-300 mt-2">
               <span className="text-[#FF6F91] font-bold">const</span> developer = {"{"}{" "}
               <span className="text-[#BE93FD]">name</span>: <span className="text-emerald-400">'Aayush Sharma'</span>,{" "}
-              <span className="text-[#BE93FD]">role</span>: <span className="text-emerald-400">'Full-Stack Developer'</span>{" "}{"}"};
+              <span className="text-[#BE93FD]">role</span>: <span className="text-emerald-400">'Full-Stack Developer'</span>,{" "}
+              <span className="text-[#BE93FD]">location</span>: <span className="text-emerald-400">'Pali, Rajasthan'</span>{" "}{"}"};
             </div>
           </motion.div>
         </div>
@@ -254,7 +259,9 @@ export default function About() {
                 <motion.img
                   key={experienceSlides[expIdx].id}
                   src={experienceSlides[expIdx].image}
-                  alt={experienceSlides[expIdx].title}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
@@ -332,7 +339,9 @@ export default function About() {
                 <motion.img
                   key={specialtySlides[specIdx].id}
                   src={specialtySlides[specIdx].image}
-                  alt={specialtySlides[specIdx].title}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
@@ -410,7 +419,9 @@ export default function About() {
                 <motion.img
                   key={focusSlides[focusIdx].id}
                   src={focusSlides[focusIdx].image}
-                  alt={focusSlides[focusIdx].title}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
@@ -493,15 +504,18 @@ export default function About() {
               </p>
             </div>
 
-            {/* Right Primary Action Button Only */}
             <div className="flex items-center justify-center w-full lg:w-auto shrink-0">
-              <button
-                onClick={scrollToContact}
+              <a
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToContact();
+                }}
                 className="w-full sm:w-auto flex items-center justify-center gap-2.5 py-4 px-9 rounded-2xl bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] text-[#0D0814] font-display font-extrabold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(255,111,145,0.4)] hover:shadow-[0_0_35px_rgba(255,111,145,0.7)] hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 <span>GET IN TOUCH</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </motion.div>

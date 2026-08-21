@@ -14,17 +14,17 @@ const socials = [
 
 const stats = [
   { icon: User, value: "Fresher", label: "Open to Work" },
-  { icon: Briefcase, value: "2+", label: "Projects Completed" },
-  { icon: Code2, value: "10+", label: "Technologies" },
-  { icon: Smile, value: "100%", label: "Client Satisfaction" },
+  { icon: Briefcase, value: "Full Stack", label: "MERN Focus" },
+  { icon: Code2, value: "18+", label: "Tech Arsenal" },
+  { icon: Smile, value: "Pali, RJ", label: "India & Remote" },
 ];
 
 const roles = [
   "MERN Stack Developer",
-  "DevOps Engineer",
-  "UI/UX Designer",
-  "SEO Optimization Specialist",
-  "Full-Stack Architect",
+  "Full-Stack Web Developer",
+  "React & Node.js Engineer",
+  "Web Developer in Pali, Rajasthan",
+  "DevOps & Cloud Engineer",
 ];
 
 const Home = React.forwardRef((props, ref) => {
@@ -48,6 +48,7 @@ const Home = React.forwardRef((props, ref) => {
     <section
       ref={ref}
       id="home"
+      aria-label="Home and Developer Profile"
       className="min-h-screen w-full relative pt-24 sm:pt-28 pb-12 flex flex-col justify-between overflow-hidden"
     >
       {/* Main Hero Content Grid */}
@@ -91,7 +92,7 @@ const Home = React.forwardRef((props, ref) => {
 
           {/* Bio Description */}
           <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl mb-6 font-body">
-            Full-stack software developer specialized in engineering modern MERN applications, intuitive UI/UX experiences, DevOps pipelines, and SEO-optimized web solutions.
+            Full-Stack MERN Developer based in Pali, Rajasthan, specializing in engineering modern web applications, scalable backend systems with Node.js and MongoDB, responsive React interfaces, and cloud-ready digital solutions for businesses in Rajasthan and clients worldwide.
           </p>
 
           {/* Horizontal Social Icons (No "CONNECT:" text label) */}
@@ -125,14 +126,18 @@ const Home = React.forwardRef((props, ref) => {
               <Download className="w-4 h-4" />
             </a>
 
-            {/* View My Services Button */}
-            <button
-              onClick={() => scrollToSection("ourservices", "/services")}
+            {/* View My Services Link */}
+            <a
+              href="/services"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("ourservices", "/services");
+              }}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full glass-card border border-[#BE93FD]/50 text-white font-display font-extrabold text-xs sm:text-sm tracking-wide hover:border-[#D65DB1] hover:bg-[#BE93FD]/15 transition-all duration-300 cursor-pointer"
             >
               <span>View My Services</span>
               <ArrowRight className="w-4 h-4 text-[#BE93FD]" />
-            </button>
+            </a>
           </div>
 
           {/* Bottom Stats Glass Card */}

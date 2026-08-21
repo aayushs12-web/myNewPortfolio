@@ -72,8 +72,11 @@ export default function Hero3DViewer() {
         {/* Clean Avatar Portrait */}
         <motion.img
           src={avatar}
-          alt="Aayush Sharma Avatar"
-          className="relative z-10 h-[420px] sm:h-[500px] md:h-[560px] object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.95)] filter contrast-105"
+          alt="3D illustrated avatar of Aayush Sharma, Full-Stack Developer"
+          width="500"
+          height="560"
+          fetchPriority="high"
+          className="relative z-10 h-[420px] sm:h-[500px] md:h-[560px] w-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.95)] filter contrast-105"
           style={{ transform: "translateZ(60px)" }}
           initial={{ opacity: 0, scale: 0.85, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
