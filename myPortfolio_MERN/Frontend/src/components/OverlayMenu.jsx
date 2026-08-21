@@ -4,7 +4,7 @@ import { X, ArrowUpRight, Mail, Sparkles, Code2 } from "lucide-react";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
 const menuItems = [
-  { num: "01", label: "HOME", path: "/home", href: "home", desc: "Digital realm & hero stage" },
+  { num: "01", label: "HOME", path: "/", href: "home", desc: "Digital realm & hero stage" },
   { num: "02", label: "SERVICES", path: "/services", href: "ourservices", desc: "Full-stack & Modern Web Solutions" },
   { num: "03", label: "ABOUT ME", path: "/about", href: "about", desc: "Experience & capabilities" },
   { num: "04", label: "SKILLS", path: "/skills", href: "skills", desc: "Tech stack & tools" },
@@ -23,9 +23,13 @@ export default function OverlayMenu({ isOpen, onClose }) {
     onClose();
     navigate(item.path);
     setTimeout(() => {
-      const el = document.getElementById(item.href);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (item.path === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const el = document.getElementById(item.href);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     }, 200);
   };

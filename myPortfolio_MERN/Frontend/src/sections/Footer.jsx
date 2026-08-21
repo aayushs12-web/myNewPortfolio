@@ -13,7 +13,7 @@ export default function Footer() {
   const navigate = useNavigate();
 
   const scrollToTop = () => {
-    navigate("/home");
+    navigate("/");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -108,10 +108,10 @@ export default function Footer() {
           {/* Semantic Internal Navigation Links for AEO & Internal Discovery */}
           <nav aria-label="Footer Navigation" className="flex flex-wrap items-center justify-center gap-6 text-xs font-mono-tech font-bold text-gray-300 uppercase tracking-wider mb-6">
             <a
-              href="/home"
+              href="/"
               onClick={(e) => {
                 e.preventDefault();
-                navigate("/home");
+                navigate("/");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               className="hover:text-[#BE93FD] transition-colors"

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ThreeCanvasBackground from "./components/ThreeCanvasBackground";
 import Home from "./sections/Home";
@@ -14,16 +14,15 @@ import { Code2, Layers, Terminal, Zap, Cpu } from "lucide-react";
 
 const routeToSection = {
   "/": "home",
-  "/home": "home",
-  "/service": "ourservices",
   "/services": "ourservices",
+  "/service": "ourservices",
   "/about": "about",
   "/skills": "skills",
   "/contact": "contact",
 };
 
 const sectionToRoute = {
-  home: "/home",
+  home: "/",
   ourservices: "/services",
   about: "/about",
   skills: "/skills",
@@ -33,20 +32,24 @@ const sectionToRoute = {
 function MainContent({ introDone }) {
   const location = useLocation();
 
-  // Scroll to target section when user lands on or types a browser URL like /home, /services, /service, /about, /skills, /contact
+  // Scroll to target section when user lands on or types a browser URL like /, /services, /service, /about, /skills, /contact
   useEffect(() => {
     const targetSectionId = routeToSection[location.pathname];
     if (targetSectionId) {
-      const el = document.getElementById(targetSectionId);
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 150);
+      if (targetSectionId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const el = document.getElementById(targetSectionId);
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 150);
+        }
       }
     }
   }, [location.pathname]);
 
-  // Keep browser address bar dynamically updated to /home, /services, /about, /skills, /contact as the user scrolls
+  // Keep browser address bar dynamically updated to /, /services, /about, /skills, /contact as the user scrolls
   useEffect(() => {
     const sections = ["home", "ourservices", "about", "skills", "contact"];
     let ticking = false;
@@ -114,6 +117,11 @@ export default function App() {
       <Navbar />
 
       <Routes>
+        <Route path="/home" element={<Navigate to="/" replace />} />
+        <Route path="/" element={<MainContent introDone={introDone} />} />
+        <Route path="/services" element={<MainContent introDone={introDone} />} />
+        <Route path="/about" element={<MainContent introDone={introDone} />} />
+        <Route path="/contact" element={<MainContent introDone={introDone} />} />
         <Route path="*" element={<MainContent introDone={introDone} />} />
       </Routes>
 

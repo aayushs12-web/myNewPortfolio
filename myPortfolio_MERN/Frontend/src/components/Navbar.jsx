@@ -4,7 +4,7 @@ import OverlayMenu from "./OverlayMenu";
 import { ArrowUpRight, Command } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", href: "/home", sectionId: "home" },
+  { name: "Home", href: "/", sectionId: "home" },
   { name: "Services", href: "/services", sectionId: "ourservices" },
   { name: "About Me", href: "/about", sectionId: "about" },
   { name: "Contact Us", href: "/contact", sectionId: "contact" },
@@ -73,8 +73,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between py-2.5 px-4 sm:px-6 rounded-full glass-card border border-[#BE93FD]/35 shadow-[0_15px_45px_rgba(0,0,0,0.85)] backdrop-blur-2xl">
           {/* Logo Brand Section */}
           <a
-            href="/home"
-            onClick={(e) => handleNavClick(e, { href: "/home", sectionId: "home" })}
+            href="/"
+            onClick={(e) => handleNavClick(e, { href: "/", sectionId: "home" })}
             className="flex items-center gap-3 group cursor-pointer"
           >
             <div className="relative w-11 h-11 rounded-full bg-gradient-to-tr from-[#845EC2] via-[#D65DB1] to-[#FF6F91] p-[1.5px] shadow-[0_0_20px_rgba(190,147,253,0.4)] group-hover:scale-105 transition-all duration-300">

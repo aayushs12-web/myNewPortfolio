@@ -5,15 +5,15 @@ export const SEO_CONFIGS = {
   "/": {
     title: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
     description:
-      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
-    canonical: "https://aayushlabs.vercel.app/home",
+      "Portfolio of Aayush Sharma, Full-Stack MERN Developer in Pali, Rajasthan. Building modern React web apps, Node.js APIs, and e-commerce websites.",
+    canonical: "https://aayushlabs.vercel.app/",
     ogType: "website",
     ogTitle: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
     ogDescription:
-      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
+      "Portfolio of Aayush Sharma, Full-Stack MERN Developer in Pali, Rajasthan. Building modern React web apps, Node.js APIs, and e-commerce websites.",
     twitterTitle: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
     twitterDescription:
-      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
+      "Portfolio of Aayush Sharma, Full-Stack MERN Developer in Pali, Rajasthan. Building modern React web apps, Node.js APIs, and e-commerce websites.",
     schema: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -22,32 +22,7 @@ export const SEO_CONFIGS = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aayushlabs.vercel.app/home"
-        }
-      ]
-    }
-  },
-  "/home": {
-    title: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
-    description:
-      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
-    canonical: "https://aayushlabs.vercel.app/home",
-    ogType: "website",
-    ogTitle: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
-    ogDescription:
-      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
-    twitterTitle: "Aayush Sharma | MERN Stack Developer in Pali, Rajasthan",
-    twitterDescription:
-      "Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, building modern web applications, scalable Node.js/MongoDB backends, and responsive React websites.",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://aayushlabs.vercel.app/home"
+          "item": "https://aayushlabs.vercel.app/"
         }
       ]
     }
@@ -87,7 +62,7 @@ export const SEO_CONFIGS = {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://aayushlabs.vercel.app/home"
+              "item": "https://aayushlabs.vercel.app/"
             },
             {
               "@type": "ListItem",
@@ -135,7 +110,7 @@ export const SEO_CONFIGS = {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://aayushlabs.vercel.app/home"
+              "item": "https://aayushlabs.vercel.app/"
             },
             {
               "@type": "ListItem",
@@ -183,7 +158,7 @@ export const SEO_CONFIGS = {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://aayushlabs.vercel.app/home"
+              "item": "https://aayushlabs.vercel.app/"
             },
             {
               "@type": "ListItem",
@@ -231,7 +206,7 @@ export const SEO_CONFIGS = {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://aayushlabs.vercel.app/home"
+              "item": "https://aayushlabs.vercel.app/"
             },
             {
               "@type": "ListItem",
@@ -246,7 +221,7 @@ export const SEO_CONFIGS = {
   },
 };
 
-const DEFAULT_IMAGE = "https://aayushlabs.vercel.app/favicon.png";
+const DEFAULT_IMAGE = "https://aayushlabs.vercel.app/og-image.png";
 const SITE_NAME = "Aayush Sharma Portfolio";
 
 function setOrCreateMeta(attrName, attrVal, content) {
@@ -281,7 +256,7 @@ function setOrCreateJsonLd(id, data) {
 }
 
 export function updatePageMetadata(pathname) {
-  const meta = SEO_CONFIGS[pathname] || SEO_CONFIGS["/home"];
+  const meta = SEO_CONFIGS[pathname] || SEO_CONFIGS["/"];
 
   // 1. Document Title
   document.title = meta.title;
@@ -309,7 +284,7 @@ export function updatePageMetadata(pathname) {
   setOrCreateMeta("property", "og:image", DEFAULT_IMAGE);
 
   // 5. Twitter / X Metadata
-  setOrCreateMeta("name", "twitter:card", "summary");
+  setOrCreateMeta("name", "twitter:card", "summary_large_image");
   setOrCreateMeta("name", "twitter:title", meta.twitterTitle || meta.title);
   setOrCreateMeta("name", "twitter:description", meta.twitterDescription || meta.description);
   setOrCreateMeta("name", "twitter:image", DEFAULT_IMAGE);
