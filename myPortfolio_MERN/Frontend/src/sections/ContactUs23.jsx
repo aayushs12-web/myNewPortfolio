@@ -283,44 +283,62 @@ export default function ContactUs23() {
                   Let's Collaborate
                 </h3>
                 <p className="mt-2 text-gray-400 text-xs sm:text-sm leading-relaxed">
-                  I specialize in crafting high-performance Web Applications, Landing Pages, E-commerce Platforms, and Cloud Solutions for clients in Pali, Rajasthan and across the globe.
+                  Have a web application to build, a freelance project, or an engineering role? Send a message through the form or email directly.
                 </p>
               </div>
 
-              {/* Main Location Info Box */}
-              <div className="p-5 rounded-2xl bg-gradient-to-r from-white/[0.04] to-white/[0.01] border border-white/10 hover:border-[#BE93FD]/40 transition-all duration-300">
+              {/* Direct Plain-Text Email Box */}
+              <div className="p-5 rounded-2xl bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-[#BE93FD]/40 hover:border-[#FF6F91] transition-all duration-300">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#BE93FD]/30 to-[#FF6F91]/30 text-[#BE93FD] flex items-center justify-center shrink-0 border border-[#BE93FD]/50 shadow-[0_0_20px_rgba(190,147,253,0.3)]">
-                    <Globe className="w-6 h-6 animate-pulse" />
+                    <Mail className="w-6 h-6" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-display text-[#BE93FD] uppercase tracking-wider font-bold">LOCATION & WORK MODE</span>
-                    <span className="text-sm sm:text-base font-bold text-white mt-0.5 font-display">
-                      Pali, Rajasthan, India — Local & Worldwide Remote
+                    <span className="text-[10px] font-display text-[#BE93FD] uppercase tracking-wider font-bold">DIRECT EMAIL INQUIRY</span>
+                    <a
+                      href="mailto:aayush.s4568@gmail.com"
+                      className="text-sm sm:text-base font-bold text-white hover:text-[#FF6F91] transition-colors mt-0.5 font-mono-tech"
+                    >
+                      aayush.s4568@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main Location Info Box */}
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 text-[#BE93FD] flex items-center justify-center shrink-0 border border-white/10">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-display text-gray-400 uppercase tracking-wider font-bold">LOCATION & WORK MODE</span>
+                    <span className="text-xs sm:text-sm font-semibold text-gray-200 mt-0.5">
+                      Pali, Rajasthan, India (Local & Remote Worldwide)
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Highlights & Guarantees */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-1">
-                  <div className="flex items-center gap-2 text-[#FF6F91]">
-                    <Clock className="w-4 h-4" />
-                    <span className="text-xs font-display font-bold">FAST RESPONSE</span>
-                  </div>
-                  <span className="text-sm font-bold text-white mt-1 font-display">&lt; 2 Hours</span>
-                  <span className="text-[11px] text-gray-400 font-display">Guaranteed feedback</span>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-1">
-                  <div className="flex items-center gap-2 text-[#BE93FD]">
-                    <ShieldCheck className="w-4 h-4" />
-                    <span className="text-xs font-display font-bold">QUALITY</span>
-                  </div>
-                  <span className="text-sm font-bold text-white mt-1 font-display">Production-Ready</span>
-                  <span className="text-[11px] text-gray-400 font-display">Clean & tested code</span>
-                </div>
+              {/* What Happens Next Section */}
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+                <span className="text-[11px] font-display font-bold text-[#BE93FD] uppercase tracking-wider block">
+                  WHAT HAPPENS NEXT?
+                </span>
+                <ul className="space-y-1.5 text-xs text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0 mt-0.5" />
+                    <span>Inquiry delivered directly to my personal inbox.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0 mt-0.5" />
+                    <span>Review of technical scope and requirements within 24 hours.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0 mt-0.5" />
+                    <span>Direct follow-up to discuss timeline, milestones, and quote.</span>
+                  </li>
+                </ul>
               </div>
             </div>
 

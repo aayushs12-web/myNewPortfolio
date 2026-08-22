@@ -60,39 +60,43 @@ const Home = React.forwardRef((props, ref) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {/* 1. ROTATING ROLES / TITLE (INCREASED SIZE, ABOVE GREETING) */}
-          <div className="h-12 sm:h-14 flex items-center mb-2">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={roles[roleIndex]}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.45, ease: "easeInOut" }}
-                className="font-mono-tech font-extrabold text-xl sm:text-3xl md:text-4xl text-[#BE93FD] uppercase tracking-wider drop-shadow-[0_0_18px_rgba(190,147,253,0.5)]"
-              >
-                {roles[roleIndex]}
-              </motion.div>
-            </AnimatePresence>
+          {/* Visual Greeting & Animated Role Showcase */}
+          <div className="flex flex-col items-center lg:items-start mb-2">
+            <span className="font-mono-tech text-xs sm:text-sm text-gray-400 uppercase tracking-widest mb-1">
+              👋 Welcome
+            </span>
+            <div className="h-9 sm:h-11 flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={roles[roleIndex]}
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="font-mono-tech font-bold text-sm sm:text-lg text-[#BE93FD] uppercase tracking-wider drop-shadow-[0_0_12px_rgba(190,147,253,0.4)]"
+                >
+                  {roles[roleIndex]}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
-          {/* 2. COMBINED GREETING & NAME ON THE SAME LINE */}
+          {/* Primary Stable Semantic H1 */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="font-display font-extrabold text-2xl sm:text-4xl md:text-4xl lg:text-5xl tracking-tight leading-tight mb-6 drop-shadow-lg "
+            className="font-display font-black text-3xl sm:text-5xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-4 drop-shadow-lg"
           >
-            <span className="text-white">Hello, I'm <br /> </span>
-
-            <span className="bg-gradient-to-r from-[#BE93FD] via-[#DCB0FF] to-[#FF6F91] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(190,147,253,0.5)] font-black">
-              Aayush Sharma
+            <span className="text-white">Aayush Sharma</span>
+            <span className="block text-lg sm:text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-[#BE93FD] via-[#DCB0FF] to-[#FF6F91] bg-clip-text text-transparent mt-1">
+              Full-Stack MERN Developer
             </span>
           </motion.h1>
 
-          {/* Bio Description */}
+          {/* Factual, Natural Bio Description */}
           <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl mb-6 font-body">
-            Full-Stack MERN Developer based in Pali, Rajasthan, specializing in engineering modern web applications, scalable backend systems with Node.js and MongoDB, responsive React interfaces, and cloud-ready digital solutions for businesses in Rajasthan and clients worldwide.
+            Full-stack web developer based in Pali, Rajasthan, specializing in building responsive React frontends, scalable Node.js and Express REST APIs, and robust MongoDB databases. Focused on clean architecture, performance, and delivering modern digital solutions for local and remote projects.
           </p>
 
           {/* Horizontal Social Icons (No "CONNECT:" text label) */}

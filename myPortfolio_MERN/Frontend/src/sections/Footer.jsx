@@ -151,6 +151,17 @@ export default function Footer() {
             >
               Contact
             </a>
+            <a
+              href="/articles"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/articles");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="hover:text-[#BE93FD] transition-colors"
+            >
+              Articles
+            </a>
           </nav>
 
           {/* Social Profile Links */}

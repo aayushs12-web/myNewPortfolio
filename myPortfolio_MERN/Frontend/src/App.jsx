@@ -10,6 +10,8 @@ import ContactUs23 from "./sections/ContactUs23";
 import Footer from "./sections/Footer";
 import SectionDivider from "./components/SectionDivider";
 import SEO from "./components/SEO";
+import ArticlesIndex from "./pages/ArticlesIndex";
+import ArticleView from "./pages/ArticleView";
 import { Code2, Layers, Terminal, Zap, Cpu } from "lucide-react";
 
 const routeToSection = {
@@ -122,6 +124,8 @@ export default function App() {
         <Route path="/services" element={<MainContent introDone={introDone} />} />
         <Route path="/about" element={<MainContent introDone={introDone} />} />
         <Route path="/contact" element={<MainContent introDone={introDone} />} />
+        <Route path="/articles" element={<ArticlesIndex />} />
+        <Route path="/articles/:slug" element={<ArticleView />} />
         <Route path="*" element={<MainContent introDone={introDone} />} />
       </Routes>
 

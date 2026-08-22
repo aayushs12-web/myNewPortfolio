@@ -19,73 +19,73 @@ import {
 const buildItems = [
   {
     id: "mern",
-    title: "Modern MERN Web Applications",
-    desc: "Full-stack web apps using MongoDB, Express, React and Node.js.",
+    title: "React & Node.js Web Apps",
+    desc: "Single-page and full-stack applications with React 19 frontends, Node.js runtimes, and Express servers.",
     icon: Code2,
-    badge: "Full-Stack System",
-  },
-  {
-    id: "responsive",
-    title: "Responsive & Scalable Websites",
-    desc: "Pixel-perfect, mobile-first designs that scale seamlessly.",
-    icon: Smartphone,
-    badge: "Mobile-First UX",
-  },
-  {
-    id: "dashboards",
-    title: "High-Performance Dashboards",
-    desc: "Real-time analytics, insights and visualizations that drive decisions.",
-    icon: BarChart3,
-    badge: "Analytics Engine",
+    badge: "Full-Stack Architecture",
   },
   {
     id: "restapi",
-    title: "REST APIs & Backend Systems",
-    desc: "Robust, secure and well-structured APIs for any application.",
+    title: "RESTful APIs & Backend Services",
+    desc: "Structured CRUD APIs, JSON response handling, error middleware, and modular routing patterns.",
     icon: Server,
-    badge: "Microservices Architecture",
+    badge: "Express & Node.js",
+  },
+  {
+    id: "mongodb",
+    title: "MongoDB Database Modeling",
+    desc: "Document schemas, relationships, indexing, and validation using Mongoose ODM.",
+    icon: Box,
+    badge: "Database Design",
   },
   {
     id: "auth",
-    title: "Authentication & Secure Apps",
-    desc: "JWT, OAuth, RBAC and industry-standard security practices.",
+    title: "Authentication & Access Control",
+    desc: "Token-based auth with JSON Web Tokens (JWT), password hashing, and protected route handlers.",
     icon: Lock,
-    badge: "Enterprise Security",
+    badge: "Security & Auth",
+  },
+  {
+    id: "responsive",
+    title: "Responsive Web Interfaces",
+    desc: "Mobile-first, cross-browser layouts built with modern Tailwind CSS and semantic HTML5.",
+    icon: Smartphone,
+    badge: "Tailwind & UI",
+  },
+  {
+    id: "ecommerce",
+    title: "E-Commerce Storefront Features",
+    desc: "Product listings, shopping cart state management, checkout flows, and payment integration.",
+    icon: Palette,
+    badge: "E-Commerce Logic",
+  },
+  {
+    id: "dashboards",
+    title: "Data Dashboards & State Flows",
+    desc: "Interactive data interfaces with dynamic filtering, component state handling, and fast rendering.",
+    icon: BarChart3,
+    badge: "State & Data Flow",
   },
   {
     id: "devops",
-    title: "DevOps-Powered Deployments",
-    desc: "Automated deployments with zero-downtime and reliability.",
+    title: "Docker Containerization",
+    desc: "Multi-stage Dockerfiles and containerized builds for consistent local and production environments.",
     icon: CloudUpload,
-    badge: "Cloud Automation",
+    badge: "DevOps & Containers",
   },
   {
     id: "cicd",
-    title: "CI/CD Pipelines",
-    desc: "Automate, test and deliver code with confidence and speed.",
+    title: "CI/CD Automation Pipelines",
+    desc: "Automated build testing, code linting, and continuous delivery workflows via GitHub Actions.",
     icon: RefreshCw,
-    badge: "Continuous Delivery",
+    badge: "CI/CD Automation",
   },
   {
-    id: "cloud",
-    title: "Cloud-Ready Applications",
-    desc: "Deploy on cloud platforms for global scalability and performance.",
-    icon: Cloud,
-    badge: "Cloud Scale",
-  },
-  {
-    id: "uiux",
-    title: "Interactive UI/UX Experiences",
-    desc: "Beautiful, accessible and engaging interfaces users love.",
-    icon: Palette,
-    badge: "Sora & Glassmorphism",
-  },
-  {
-    id: "3d",
-    title: "3D & Animated Web Experiences",
-    desc: "Bringing ideas to life with 3D, animations and smooth interactions.",
-    icon: Box,
-    badge: "Three.js & Motion",
+    id: "motion",
+    title: "UI Motion & Micro-Interactions",
+    desc: "Accessible interface animations, page state transitions, and interactive components with Framer Motion.",
+    icon: Sparkles,
+    badge: "Framer Motion",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function WhatIBuild() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border border-[#BE93FD]/30 text-[#BE93FD] text-xs font-mono-tech font-bold uppercase mb-3"
           >
             <Sparkles className="w-4 h-4 text-[#FF6F91]" />
-            <span>SOLUTIONS & CAPABILITIES</span>
+            <span>SOLUTIONS & TECHNICAL CAPABILITIES</span>
           </motion.div>
 
           <motion.h2
@@ -146,7 +146,7 @@ export default function WhatIBuild() {
           <div className="h-0.5 w-24 rounded-full bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] mt-3 mb-2 shadow-[0_0_12px_#D65DB1]" />
 
           <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mt-2 max-w-2xl text-center">
-            Full-stack web applications, scalable REST APIs, custom e-commerce systems, responsive landing pages, and intuitive user interfaces built for businesses in Pali, Rajasthan and clients worldwide.
+            Technical overview of the full-stack web applications, REST APIs, database models, and responsive user interfaces I engineer using the MERN stack.
           </p>
         </div>
 

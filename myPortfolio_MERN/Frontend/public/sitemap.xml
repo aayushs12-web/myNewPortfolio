@@ -16,4 +16,12 @@
     <loc>https://aayushlabs.vercel.app/contact</loc>
     <lastmod>2026-08-22</lastmod>
   </url>
+  <url>
+    <loc>https://aayushlabs.vercel.app/articles</loc>
+    <lastmod>2026-08-22</lastmod>
+  </url>
+  <url>
+    <loc>https://aayushlabs.vercel.app/articles/technical-seo-react-vite</loc>
+    <lastmod>2026-08-22</lastmod>
+  </url>
 </urlset>

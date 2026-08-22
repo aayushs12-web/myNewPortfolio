@@ -219,6 +219,52 @@ export const SEO_CONFIGS = {
       ]
     }
   },
+  "/articles": {
+    title: "Technical Articles & Web Engineering Guides | Aayush Sharma",
+    description:
+      "In-depth technical guides on React 19, Node.js, Express, MongoDB REST APIs, Technical SEO, and cloud deployments by Aayush Sharma.",
+    canonical: "https://aayushlabs.vercel.app/articles",
+    ogType: "website",
+    ogTitle: "Technical Articles & Web Engineering Guides | Aayush Sharma",
+    ogDescription:
+      "In-depth technical guides on React 19, Node.js, Express, MongoDB REST APIs, Technical SEO, and cloud deployments by Aayush Sharma.",
+    twitterTitle: "Technical Articles & Web Engineering Guides | Aayush Sharma",
+    twitterDescription:
+      "In-depth technical guides on React 19, Node.js, Express, MongoDB REST APIs, Technical SEO, and cloud deployments by Aayush Sharma.",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://aayushlabs.vercel.app/articles#collectionpage",
+          "url": "https://aayushlabs.vercel.app/articles",
+          "name": "Technical Articles & Web Engineering Guides | Aayush Sharma",
+          "description":
+            "In-depth technical guides on React 19, Node.js, Express, MongoDB REST APIs, Technical SEO, and cloud deployments by Aayush Sharma.",
+          "isPartOf": {
+            "@id": "https://aayushlabs.vercel.app/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://aayushlabs.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Articles",
+              "item": "https://aayushlabs.vercel.app/articles"
+            }
+          ]
+        }
+      ]
+    }
+  },
 };
 
 const DEFAULT_IMAGE = "https://aayushlabs.vercel.app/og-image.png";
@@ -295,17 +341,110 @@ export function updatePageMetadata(pathname) {
   }
 }
 
+export function updateArticleMetadata(article) {
+  if (!article) return;
+
+  const articleUrl = `https://aayushlabs.vercel.app/articles/${article.slug}`;
+  const pageTitle = `${article.title} | Aayush Sharma`;
+  const pageDescription = article.description;
+  const imageUrl = article.image || DEFAULT_IMAGE;
+
+  // 1. Document Title
+  document.title = pageTitle;
+
+  // 2. Meta Description & Robots
+  setOrCreateMeta("name", "description", pageDescription);
+  setOrCreateMeta("name", "author", article.author || "Aayush Sharma");
+  setOrCreateMeta(
+    "name",
+    "robots",
+    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  );
+  setOrCreateMeta("name", "theme-color", "#0D0814");
+
+  // 3. Canonical URL
+  setOrCreateLink("canonical", articleUrl);
+
+  // 4. Open Graph Metadata
+  setOrCreateMeta("property", "og:site_name", SITE_NAME);
+  setOrCreateMeta("property", "og:type", "article");
+  setOrCreateMeta("property", "og:locale", "en_US");
+  setOrCreateMeta("property", "og:title", pageTitle);
+  setOrCreateMeta("property", "og:description", pageDescription);
+  setOrCreateMeta("property", "og:url", articleUrl);
+  setOrCreateMeta("property", "og:image", imageUrl);
+
+  // 5. Twitter / X Metadata
+  setOrCreateMeta("name", "twitter:card", "summary_large_image");
+  setOrCreateMeta("name", "twitter:title", pageTitle);
+  setOrCreateMeta("name", "twitter:description", pageDescription);
+  setOrCreateMeta("name", "twitter:image", imageUrl);
+
+  // 6. Dynamic TechArticle JSON-LD Structured Data
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": `${articleUrl}#article`,
+        "headline": article.title,
+        "description": article.description,
+        "url": articleUrl,
+        "image": imageUrl,
+        "datePublished": article.datePublished,
+        "dateModified": article.dateModified || article.datePublished,
+        "author": {
+          "@id": "https://aayushlabs.vercel.app/#person"
+        },
+        "publisher": {
+          "@id": "https://aayushlabs.vercel.app/#website"
+        },
+        "inLanguage": "en-US",
+        "mainEntityOfPage": articleUrl
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://aayushlabs.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://aayushlabs.vercel.app/articles"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": article.title,
+            "item": articleUrl
+          }
+        ]
+      }
+    ]
+  };
+
+  setOrCreateJsonLd("route-specific-schema", articleSchema);
+}
+
 export default function SEO() {
   const location = useLocation();
 
   useEffect(() => {
-    updatePageMetadata(location.pathname);
+    // Only auto-update if not on a dynamic /articles/:slug route handled by ArticleView
+    if (!location.pathname.startsWith("/articles/")) {
+      updatePageMetadata(location.pathname);
+    }
   }, [location.pathname]);
 
   useEffect(() => {
     // Listen to custom route sync events triggered during scroll-based history replacement
     const handleRouteSync = (event) => {
-      if (event.detail && event.detail.pathname) {
+      if (event.detail && event.detail.pathname && !event.detail.pathname.startsWith("/articles/")) {
         updatePageMetadata(event.detail.pathname);
       }
     };

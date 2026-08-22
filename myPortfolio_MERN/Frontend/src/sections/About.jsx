@@ -170,13 +170,16 @@ export default function About() {
 
             <div className="h-0.5 w-28 rounded-full bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] my-2 shadow-[0_0_12px_#D65DB1]" />
 
-            {/* Factual, Clear Bio Paragraphs */}
+            {/* Factual, Authentic Bio Paragraphs */}
             <div className="space-y-3 text-gray-200 text-sm sm:text-base leading-relaxed">
               <p>
-                Aayush Sharma is a Full-Stack MERN Developer based in Pali, Rajasthan, passionate about building scalable, high-performance web applications with clean architecture and seamless user experiences. Specializing across the MERN stack (MongoDB, Express.js, React, and Node.js) along with Tailwind CSS and Bootstrap, engineering production-ready digital solutions with secure REST APIs for clients in Rajasthan and across the globe.
+                My journey into software engineering started with curiosity about how complex web applications function behind the scenes. That curiosity evolved into hands-on development across the JavaScript and Node.js ecosystem, building full-stack projects from ground up using React, Express, MongoDB, and modern styling tools.
+              </p>
+              <p>
+                I learn by building real projects — breaking problems down into modular components, engineering secure REST APIs, and refining user interfaces for speed and usability. Based in Pali, Rajasthan, I focus on delivering clean, maintainable code for local client projects and remote engineering collaborations.
               </p>
               <p className="text-gray-300 font-medium italic text-xs sm:text-sm border-l-2 border-[#BE93FD] pl-3">
-                "Driven by transforming ideas into scalable, user-centric web products that deliver real impact through thoughtful design, performance, and reliability."
+                "Committed to building thoughtful, scalable web software through continuous learning, clean architecture, and practical engineering."
               </p>
             </div>
 
@@ -184,8 +187,8 @@ export default function About() {
             <div className="p-4 rounded-2xl glass-card border border-[#BE93FD]/30 font-mono-tech text-xs text-gray-300 mt-2">
               <span className="text-[#FF6F91] font-bold">const</span> developer = {"{"}{" "}
               <span className="text-[#BE93FD]">name</span>: <span className="text-emerald-400">'Aayush Sharma'</span>,{" "}
-              <span className="text-[#BE93FD]">role</span>: <span className="text-emerald-400">'Full-Stack Developer'</span>,{" "}
-              <span className="text-[#BE93FD]">location</span>: <span className="text-emerald-400">'Pali, Rajasthan'</span>{" "}{"}"};
+              <span className="text-[#BE93FD]">specialization</span>: <span className="text-emerald-400">'MERN Stack'</span>,{" "}
+              <span className="text-[#BE93FD]">location</span>: <span className="text-emerald-400">'Pali, Rajasthan, India'</span>{" "}{"}"};
             </div>
           </motion.div>
         </div>
@@ -434,45 +437,86 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* ================= MIDDLE SLOGAN BANNER ================= */}
+        {/* ================= ENGINEERING PRINCIPLES SECTION ================= */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative py-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="relative pt-6 border-t border-white/10 flex flex-col items-center"
         >
-          {/* Left 3D Glass Pedestal Code Icon Button */}
-          <div className="relative flex items-center justify-center shrink-0">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-b from-[#BE93FD]/20 to-transparent p-1 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-2xl glass-card border border-[#BE93FD]/40 shadow-xl flex items-center justify-center text-[#BE93FD] transform hover:rotate-6 transition-transform">
-                <Code2 className="w-10 h-10 text-[#FF6F91]" />
-              </div>
+          <div className="text-center max-w-3xl mx-auto mb-8 px-4 flex flex-col items-center">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill border border-[#BE93FD]/30 text-[#BE93FD] text-xs font-mono-tech font-bold uppercase mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#FF6F91]" />
+              <span>HOW I BUILD SOFTWARE</span>
             </div>
-          </div>
-
-          {/* Middle Slogan Statement */}
-          <div className="flex-1 text-center md:text-left">
-            <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight uppercase mb-2">
-              BUILD. <span className="bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] bg-clip-text text-transparent">LEARN.</span> IMPROVE.
+            <h3 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase">
+              ENGINEERING <span className="bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] bg-clip-text text-transparent">PRINCIPLES</span>
             </h3>
-            <div className="h-0.5 w-24 rounded-full bg-gradient-to-r from-[#BE93FD] to-[#FF6F91] mb-3 mx-auto md:mx-0 shadow-[0_0_12px_#D65DB1]" />
-
-            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-3xl font-medium">
-              I believe great products are built through continuous learning, thoughtful design, clean code, and constant improvement. My goal is to create experiences that are not only visually impressive, but also fast, scalable, accessible, and easy to use.
+            <p className="text-gray-300 text-xs sm:text-sm mt-2 max-w-2xl text-center">
+              Core technical practices and standards applied across every web application and backend system I build.
             </p>
           </div>
 
-          {/* Right End: Live Engineering Metric Badges */}
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="p-3.5 rounded-2xl glass-card border border-[#BE93FD]/30 flex items-center gap-3 shadow-lg">
-              <div className="p-2 rounded-xl bg-[#BE93FD]/20 text-[#FF6F91]">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/30 flex flex-col gap-2.5 hover:border-[#FF6F91] transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-[#BE93FD]/15 text-[#BE93FD] flex items-center justify-center border border-[#BE93FD]/30">
+                <Layers className="w-5 h-5" />
+              </div>
+              <h4 className="font-display font-bold text-base text-white">Reusable Component Architecture</h4>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Building modular React components with isolated state, predictable props, and clean separation between UI and business logic.
+              </p>
+            </div>
+
+            <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/30 flex flex-col gap-2.5 hover:border-[#FF6F91] transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-[#FF6F91]/15 text-[#FF6F91] flex items-center justify-center border border-[#FF6F91]/30">
+                <Code2 className="w-5 h-5" />
+              </div>
+              <h4 className="font-display font-bold text-base text-white">Semantic HTML & Accessibility</h4>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Writing standards-compliant, accessible markup for optimal SEO crawling, search engine clarity, and assistive technologies.
+              </p>
+            </div>
+
+            <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/30 flex flex-col gap-2.5 hover:border-[#FF6F91] transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-[#D65DB1]/15 text-[#D65DB1] flex items-center justify-center border border-[#D65DB1]/30">
+                <Target className="w-5 h-5" />
+              </div>
+              <h4 className="font-display font-bold text-base text-white">Mobile-First & Responsive UI</h4>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Designing fluid, responsive interfaces using Tailwind CSS design tokens that render seamlessly across mobile, tablet, and desktop viewports.
+              </p>
+            </div>
+
+            <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/30 flex flex-col gap-2.5 hover:border-[#FF6F91] transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-[#BE93FD]/15 text-[#BE93FD] flex items-center justify-center border border-[#BE93FD]/30">
+                <Briefcase className="w-5 h-5" />
+              </div>
+              <h4 className="font-display font-bold text-base text-white">Maintainable Code & Git Hygiene</h4>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Maintaining clean repository structures, clear commit conventions, linting standards, and well-organized directory patterns.
+              </p>
+            </div>
+
+            <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/30 flex flex-col gap-2.5 hover:border-[#FF6F91] transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-[#FF6F91]/15 text-[#FF6F91] flex items-center justify-center border border-[#FF6F91]/30">
                 <Zap className="w-5 h-5" />
               </div>
-              <div className="flex flex-col text-left">
-                <span className="font-display font-extrabold text-sm text-white">100% Focus</span>
-                <span className="font-mono-tech text-[10px] text-[#BE93FD] uppercase">Clean Code & UX</span>
+              <h4 className="font-display font-bold text-base text-white">Secure Configuration & Auth</h4>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Safely isolating environment variables (`.env`), validating user inputs, and implementing secure JWT token authentication.
+              </p>
+            </div>
+
+            <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/30 flex flex-col gap-2.5 hover:border-[#FF6F91] transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-[#D65DB1]/15 text-[#D65DB1] flex items-center justify-center border border-[#D65DB1]/30">
+                <Sparkles className="w-5 h-5" />
               </div>
+              <h4 className="font-display font-bold text-base text-white">Structured REST APIs & Performance</h4>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Engineering modular Express controllers, standardized JSON response structures, asset compression, and performance optimization.
+              </p>
             </div>
           </div>
         </motion.div>
