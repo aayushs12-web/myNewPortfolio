@@ -1,9 +1,11 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import avatar from "../assets/avator.png";
+import avatar from "../assets/avator.webp";
 
 export default function Hero3DViewer() {
   const containerRef = useRef(null);
+  const boundsRef = useRef(null);
+  const rafRef = useRef(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -14,17 +16,53 @@ export default function Hero3DViewer() {
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["14deg", "-14deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-20deg", "20deg"]);
 
-  const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left - rect.width / 2;
-    const mouseY = e.clientY - rect.top - rect.height / 2;
+  const updateBounds = () => {
+    if (containerRef.current) {
+      boundsRef.current = containerRef.current.getBoundingClientRect();
+    }
+  };
 
-    x.set(mouseX / rect.width);
-    y.set(mouseY / rect.height);
+  useEffect(() => {
+    window.addEventListener("resize", updateBounds, { passive: true });
+    return () => {
+      window.removeEventListener("resize", updateBounds);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    updateBounds();
+  };
+
+  const handleMouseMove = (e) => {
+    if (!boundsRef.current) {
+      updateBounds();
+    }
+    if (!boundsRef.current) return;
+
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+
+    if (!rafRef.current) {
+      rafRef.current = requestAnimationFrame(() => {
+        if (boundsRef.current) {
+          const rect = boundsRef.current;
+          const mouseX = clientX - rect.left - rect.width / 2;
+          const mouseY = clientY - rect.top - rect.height / 2;
+          x.set(mouseX / rect.width);
+          y.set(mouseY / rect.height);
+        }
+        rafRef.current = null;
+      });
+    }
   };
 
   const handleMouseLeave = () => {
+    boundsRef.current = null;
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
     x.set(0);
     y.set(0);
   };
@@ -32,6 +70,7 @@ export default function Hero3DViewer() {
   return (
     <div
       ref={containerRef}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="relative w-full max-w-lg mx-auto h-[480px] sm:h-[560px] md:h-[600px] flex items-center justify-center perspective-1000 select-none"

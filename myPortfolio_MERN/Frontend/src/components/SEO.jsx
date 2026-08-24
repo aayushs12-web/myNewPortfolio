@@ -677,17 +677,5 @@ export default function SEO() {
     }
   }, [location.pathname]);
 
-  useEffect(() => {
-    // Listen to custom route sync events triggered during scroll-based history replacement
-    const handleRouteSync = (event) => {
-      if (event.detail && event.detail.pathname && !event.detail.pathname.startsWith("/articles/")) {
-        updatePageMetadata(event.detail.pathname);
-      }
-    };
-
-    window.addEventListener("portfolio:route-change", handleRouteSync);
-    return () => window.removeEventListener("portfolio:route-change", handleRouteSync);
-  }, []);
-
   return null;
 }

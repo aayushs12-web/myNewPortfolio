@@ -16,11 +16,11 @@ export default function ThreeCanvasBackground() {
         }}
       />
 
-      {/* Hardware-Accelerated Ambient Orbs */}
-      <div className="absolute -top-28 -left-28 w-[500px] h-[500px] bg-[#845EC2]/18 rounded-full blur-3xl pointer-events-none transform-gpu" />
-      <div className="absolute top-1/4 -right-28 w-[550px] h-[550px] bg-[#D65DB1]/14 rounded-full blur-3xl pointer-events-none transform-gpu" />
-      <div className="absolute bottom-10 left-1/4 w-[450px] h-[450px] bg-[#FF6F91]/12 rounded-full blur-3xl pointer-events-none transform-gpu" />
-      <div className="absolute top-2/3 right-1/4 w-[400px] h-[400px] bg-[#BE93FD]/14 rounded-full blur-3xl pointer-events-none transform-gpu" />
+      {/* Hardware-Accelerated Ambient Orbs with Mobile GPU Optimization */}
+      <div className="absolute -top-28 -left-28 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-[#845EC2]/18 rounded-full blur-2xl sm:blur-3xl pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute top-1/4 -right-28 w-[320px] h-[320px] sm:w-[550px] sm:h-[550px] bg-[#D65DB1]/14 rounded-full blur-2xl sm:blur-3xl pointer-events-none transform-gpu will-change-transform" />
+      <div className="hidden sm:block absolute bottom-10 left-1/4 w-[450px] h-[450px] bg-[#FF6F91]/12 rounded-full blur-3xl pointer-events-none transform-gpu will-change-transform" />
+      <div className="hidden md:block absolute top-2/3 right-1/4 w-[400px] h-[400px] bg-[#BE93FD]/14 rounded-full blur-3xl pointer-events-none transform-gpu will-change-transform" />
     </div>
   );
 }

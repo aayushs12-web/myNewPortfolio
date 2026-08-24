@@ -12,7 +12,7 @@ import {
   ArrowRight,
   Zap,
 } from "lucide-react";
-import photo from "../assets/p.jpeg";
+import photo from "../assets/p.webp";
 
 // Card 01 Data - EXPERIENCE Slides
 const experienceSlides = [

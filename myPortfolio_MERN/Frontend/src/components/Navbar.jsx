@@ -32,26 +32,25 @@ export default function Navbar() {
             setVisible(true);
           }
           lastScrollY.current = currentScrollY;
-
-          const sections = ["home", "ourservices", "about", "skills", "contact"];
-          for (const sectionId of sections) {
-            const el = document.getElementById(sectionId);
-            if (el) {
-              const rect = el.getBoundingClientRect();
-              if (rect.top <= 250 && rect.bottom >= 250) {
-                setActiveSection(sectionId);
-                break;
-              }
-            }
-          }
           ticking = false;
         });
         ticking = true;
       }
     };
 
+    const handleSectionChange = (e) => {
+      if (e.detail && e.detail.sectionId) {
+        setActiveSection(e.detail.sectionId);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("portfolio:section-change", handleSectionChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("portfolio:section-change", handleSectionChange);
+    };
   }, []);
 
   const handleNavClick = (e, link) => {
