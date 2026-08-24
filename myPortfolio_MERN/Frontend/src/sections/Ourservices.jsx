@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import {
   Code2,
   Sparkles,
   ArrowRight,
+  ArrowUpRight,
   Rotate3D,
   Cloud,
   CheckCircle2,
@@ -19,6 +20,7 @@ import {
   HelpCircle,
   GitBranch,
   FileText,
+  MapPin,
 } from "lucide-react";
 
 const services = [
@@ -545,6 +547,40 @@ export default function Ourservices() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Regional Service Areas Callout */}
+        <div className="w-full max-w-4xl px-4 sm:px-8 mt-16 text-center">
+          <div className="glass-card p-6 sm:p-8 rounded-3xl border border-[#BE93FD]/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="text-left max-w-xl">
+              <div className="inline-flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
+                <MapPin className="w-3.5 h-3.5 text-[#FF6F91]" />
+                <span>Regional Service Locations</span>
+              </div>
+              <h4 className="font-display font-bold text-base sm:text-lg text-white mb-1">
+                Looking for Web Development in Gujarat?
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                Explore dedicated solutions for businesses and startups in Ahmedabad and Gandhinagar with modern MERN stack architecture.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
+              <Link
+                to="/ahmedabad-web-developer"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#BE93FD] text-white text-xs font-mono-tech font-bold hover:bg-[#BE93FD]/10 transition-all"
+              >
+                <span>Ahmedabad Web Services</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#BE93FD]" />
+              </Link>
+              <Link
+                to="/gandhinagar-web-developer"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#FF6F91] text-white text-xs font-mono-tech font-bold hover:bg-[#FF6F91]/10 transition-all"
+              >
+                <span>Gandhinagar Web Services</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#FF6F91]" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

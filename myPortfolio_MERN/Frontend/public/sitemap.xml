@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aayushlabs.vercel.app/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://aayushlabs.vercel.app/services</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://aayushlabs.vercel.app/about</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://aayushlabs.vercel.app/contact</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://aayushlabs.vercel.app/ahmedabad-web-developer</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://aayushlabs.vercel.app/gandhinagar-web-developer</loc>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://aayushlabs.vercel.app/articles</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://aayushlabs.vercel.app/articles/technical-seo-react-vite</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
 </urlset>

@@ -1,14 +1,16 @@
 // middleware/errorHandler.js
-// Centralised error handling middleware — catches all unhandled errors
+// Centralized, production-hardened error handling middleware
 
 /**
  * Express error handler
- * Must have 4 parameters (err, req, res, next) for Express to recognise it as an error handler
+ * Sanitizes errors in production to prevent leaking internal stack traces or server paths.
  */
 const errorHandler = (err, req, res, next) => {
+  const isDev = process.env.NODE_ENV === "development";
+
   // Mongoose validation error
   if (err.name === "ValidationError") {
-    const messages = Object.values(err.errors).map((e) => e.message);
+    const messages = Object.values(err.errors || {}).map((e) => e.message);
     return res.status(400).json({
       success: false,
       message: "Validation Error",
@@ -20,25 +22,38 @@ const errorHandler = (err, req, res, next) => {
   if (err.name === "CastError") {
     return res.status(400).json({
       success: false,
-      message: "Invalid resource ID format.",
+      message: "Invalid resource identifier format.",
     });
   }
 
   // Mongoose duplicate key
   if (err.code === 11000) {
-    const field = Object.keys(err.keyValue)[0];
+    const field = Object.keys(err.keyValue || {})[0] || "field";
     return res.status(400).json({
       success: false,
-      message: `Duplicate value for field: ${field}`,
+      message: `Duplicate record for: ${field}`,
     });
   }
 
-  // Default — generic server error
-  const statusCode = err.statusCode || 500;
+  // CORS error
+  if (err.message && err.message.includes("CORS policy")) {
+    return res.status(403).json({
+      success: false,
+      message: "Access forbidden by CORS policy.",
+    });
+  }
+
+  // Default server error
+  const statusCode = err.statusCode || (res.statusCode >= 400 ? res.statusCode : 500);
+  const safeMessage =
+    statusCode === 500 && !isDev
+      ? "An unexpected internal error occurred. Please try again later."
+      : err.message || "Internal Server Error";
+
   return res.status(statusCode).json({
     success: false,
-    message: err.message || "Internal Server Error",
-    ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
+    message: safeMessage,
+    ...(isDev && { stack: err.stack }),
   });
 };
 

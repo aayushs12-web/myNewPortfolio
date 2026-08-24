@@ -164,6 +164,36 @@ export default function Footer() {
             </a>
           </nav>
 
+          {/* Subtle Service Areas & Regional Locations */}
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-[11px] font-mono-tech text-gray-400 mb-7 px-4">
+            <span className="text-[#BE93FD] font-semibold uppercase tracking-wider">Service Areas:</span>
+            <a
+              href="/ahmedabad-web-developer"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/ahmedabad-web-developer");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="hover:text-white transition-colors underline decoration-white/20 underline-offset-4 hover:decoration-[#BE93FD]"
+            >
+              Web Developer Ahmedabad
+            </a>
+            <span className="text-white/20">•</span>
+            <a
+              href="/gandhinagar-web-developer"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/gandhinagar-web-developer");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="hover:text-white transition-colors underline decoration-white/20 underline-offset-4 hover:decoration-[#BE93FD]"
+            >
+              Web Developer Gandhinagar
+            </a>
+            <span className="text-white/20">•</span>
+            <span className="text-gray-400">Pali, RJ & Remote</span>
+          </div>
+
           {/* Social Profile Links */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}

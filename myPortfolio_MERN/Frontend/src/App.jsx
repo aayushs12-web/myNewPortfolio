@@ -12,6 +12,14 @@ import SectionDivider from "./components/SectionDivider";
 import SEO from "./components/SEO";
 import ArticlesIndex from "./pages/ArticlesIndex";
 import ArticleView from "./pages/ArticleView";
+import AhmedabadDeveloper from "./pages/AhmedabadDeveloper";
+import GandhinagarDeveloper from "./pages/GandhinagarDeveloper";
+import AIChatbot from "./components/AIChatbot/AIChatbot";
+import AdminLayout from "./pages/admin/ai/components/AdminLayout";
+import AdminDashboard from "./pages/admin/ai/Dashboard";
+import AdminLeads from "./pages/admin/ai/Leads";
+import AdminConversations from "./pages/admin/ai/Conversations";
+import AdminAnalytics from "./pages/admin/ai/Analytics";
 import { Code2, Layers, Terminal, Zap, Cpu } from "lucide-react";
 
 const routeToSection = {
@@ -106,17 +114,36 @@ function MainContent({ introDone }) {
 
 export default function App() {
   const [introDone, setIntroDone] = useState(false);
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+  useEffect(() => {
+    if (
+      location.pathname === "/ahmedabad-web-developer" ||
+      location.pathname === "/gandhinagar-web-developer" ||
+      location.pathname === "/articles" ||
+      location.pathname.startsWith("/articles/")
+    ) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location.pathname]);
 
   return (
     <div className="relative bg-[#081014] text-[#F4FBFB] selection:bg-[#45A9A9]/40 selection:text-[#98E8DE] min-h-screen">
       {/* Route-Aware Dynamic SEO Management */}
       <SEO />
 
-      {/* Ambient Canvas Background */}
-      <ThreeCanvasBackground />
+      {!isAdminRoute && (
+        <>
+          {/* Ambient Canvas Background */}
+          <ThreeCanvasBackground />
 
-      {/* Floating Glass Pill Navbar */}
-      <Navbar />
+          {/* Floating Glass Pill Navbar */}
+          <Navbar />
+
+          {/* Aayush AI Portfolio & Technical Assistant */}
+          <AIChatbot />
+        </>
+      )}
 
       <Routes>
         <Route path="/home" element={<Navigate to="/" replace />} />
@@ -124,15 +151,29 @@ export default function App() {
         <Route path="/services" element={<MainContent introDone={introDone} />} />
         <Route path="/about" element={<MainContent introDone={introDone} />} />
         <Route path="/contact" element={<MainContent introDone={introDone} />} />
+        <Route path="/ahmedabad-web-developer" element={<AhmedabadDeveloper />} />
+        <Route path="/gandhinagar-web-developer" element={<GandhinagarDeveloper />} />
         <Route path="/articles" element={<ArticlesIndex />} />
         <Route path="/articles/:slug" element={<ArticleView />} />
+
+        {/* Private Admin Area */}
+        <Route path="/admin/ai" element={<AdminLayout />}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="leads" element={<AdminLeads />} />
+          <Route path="conversations" element={<AdminConversations />} />
+          <Route path="analytics" element={<AdminAnalytics />} />
+        </Route>
+
         <Route path="*" element={<MainContent introDone={introDone} />} />
       </Routes>
 
-      <SectionDivider icon={Cpu} />
-      <Footer />
+      {!isAdminRoute && (
+        <>
+          <SectionDivider icon={Cpu} />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
-
-
