@@ -580,10 +580,12 @@ export function updatePageMetadata(pathname) {
 export function updateArticleMetadata(article) {
   if (!article) return;
 
-  const articleUrl = `https://aayushlabs.vercel.app/articles/${article.slug}`;
+  const articleUrl = article.canonical || `https://aayushlabs.vercel.app/articles/${article.slug}`;
   const pageTitle = `${article.title} | Aayush Sharma`;
   const pageDescription = article.description;
   const imageUrl = article.image || DEFAULT_IMAGE;
+  const publishedDate = article.publishedDate || article.datePublished || "2026-08-22";
+  const modifiedDate = article.modifiedDate || article.dateModified || publishedDate;
 
   // 1. Document Title
   document.title = pageTitle;
@@ -627,8 +629,8 @@ export function updateArticleMetadata(article) {
         "description": article.description,
         "url": articleUrl,
         "image": imageUrl,
-        "datePublished": article.datePublished,
-        "dateModified": article.dateModified || article.datePublished,
+        "datePublished": publishedDate,
+        "dateModified": modifiedDate,
         "author": {
           "@id": "https://aayushlabs.vercel.app/#person"
         },

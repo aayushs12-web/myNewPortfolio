@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, lazy, Suspense } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -11,14 +11,32 @@ import {
   Sparkles,
   ArrowRight,
   BookOpen,
+  Tag,
+  Layers,
+  Code2,
 } from "lucide-react";
-import { getArticleBySlug } from "../data/articles";
+import { getArticleBySlug, getRelatedArticles } from "../data/articles";
 import { updateArticleMetadata, updatePageMetadata } from "../components/SEO";
+
+function ArticleLoadingFallback() {
+  return (
+    <div className="py-16 flex flex-col items-center justify-center gap-3">
+      <div className="w-9 h-9 rounded-full border-2 border-[#BE93FD]/30 border-t-[#FF6F91] animate-spin shadow-[0_0_20px_rgba(214,93,177,0.4)]" />
+      <span className="font-mono-tech text-xs text-[#BE93FD] font-semibold tracking-wider uppercase">
+        Loading Article Content...
+      </span>
+    </div>
+  );
+}
 
 export default function ArticleView() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const article = getArticleBySlug(slug);
+
+  const relatedArticles = useMemo(() => {
+    return slug ? getRelatedArticles(slug, 2) : [];
+  }, [slug]);
 
   useEffect(() => {
     if (article) {
@@ -27,6 +45,15 @@ export default function ArticleView() {
       updatePageMetadata("/articles");
     }
   }, [article, slug]);
+
+  const LazyContent = useMemo(() => {
+    if (!article) return null;
+    const loader = article.loadContent || article.content || article.component;
+    if (typeof loader === "function") {
+      return lazy(loader);
+    }
+    return null;
+  }, [article]);
 
   if (!article) {
     return (
@@ -50,6 +77,10 @@ export default function ArticleView() {
     );
   }
 
+  const publishedDate = article.publishedDate || article.datePublished;
+  const modifiedDate = article.modifiedDate || article.dateModified;
+  const readingTime = article.readingTime || article.readTime;
+
   return (
     <article className="w-full min-h-screen pt-28 sm:pt-36 pb-20 px-4 sm:px-8 relative z-10 flex flex-col items-center">
       <div className="w-full max-w-4xl mx-auto">
@@ -57,21 +88,34 @@ export default function ArticleView() {
         <div className="mb-8 flex items-center justify-between">
           <Link
             to="/articles"
-            className="inline-flex items-center gap-2 text-xs font-mono-tech text-[#BE93FD] hover:text-[#FF6F91] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono-tech text-[#BE93FD] hover:text-[#FF6F91] transition-colors group"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>BACK TO ARTICLES</span>
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span>BACK TO ARTICLES HUB</span>
           </Link>
-          <span className="text-[11px] font-mono-tech text-gray-400 uppercase">
+          <Link
+            to={`/articles?category=${encodeURIComponent(article.category || "All")}`}
+            className="text-[11px] font-mono-tech text-gray-400 uppercase hover:text-[#BE93FD] transition-colors"
+          >
             {article.category || "Technical Guide"}
-          </span>
+          </Link>
         </div>
 
         {/* Article Header */}
         <header className="mb-10 pb-8 border-b border-white/10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill border border-[#BE93FD]/30 text-[#BE93FD] text-xs font-mono-tech font-bold uppercase mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#FF6F91]" />
-            <span>{article.category || "ENGINEERING GUIDE"}</span>
+          <div className="flex items-center gap-2 mb-4">
+            <Link
+              to={`/articles?category=${encodeURIComponent(article.category || "All")}`}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill border border-[#BE93FD]/30 text-[#BE93FD] text-xs font-mono-tech font-bold uppercase hover:border-[#FF6F91] transition-colors"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-[#FF6F91]" />
+              <span>{article.category || "ENGINEERING GUIDE"}</span>
+            </Link>
+            {article.featured && (
+              <span className="px-2.5 py-0.5 rounded-full bg-[#FF6F91]/20 border border-[#FF6F91]/40 text-[#FF6F91] text-[10px] font-mono-tech font-bold uppercase tracking-wider">
+                FEATURED
+              </span>
+            )}
           </div>
 
           <h1 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight mb-4">
@@ -89,16 +133,16 @@ export default function ArticleView() {
             </div>
             <div className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4 text-gray-400" />
-              <span>Published: {article.datePublished}</span>
+              <span>Published: {publishedDate}</span>
             </div>
-            {article.dateModified && article.dateModified !== article.datePublished && (
+            {modifiedDate && modifiedDate !== publishedDate && (
               <div className="flex items-center gap-1.5">
-                <span>(Updated: {article.dateModified})</span>
+                <span>(Updated: {modifiedDate})</span>
               </div>
             )}
             <div className="flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-[#FF6F91]" />
-              <span>{article.readTime || "5 min read"}</span>
+              <span>{readingTime || "5 min read"}</span>
             </div>
           </div>
         </header>
@@ -116,16 +160,71 @@ export default function ArticleView() {
           </div>
         )}
 
-        {/* Dynamic Article Content Body */}
+        {/* Dynamic Article Content Body with Lazy-Loading Suspense */}
         <div className="prose prose-invert max-w-none text-gray-200 text-sm sm:text-base leading-relaxed space-y-6">
-          {article.component ? (
-            <article.component />
-          ) : article.content ? (
-            article.content
+          {LazyContent ? (
+            <Suspense fallback={<ArticleLoadingFallback />}>
+              <LazyContent />
+            </Suspense>
           ) : (
-            <p className="text-gray-400 italic">Article content is loading...</p>
+            <p className="text-gray-400 italic">Article content is unavailable.</p>
           )}
         </div>
+
+        {/* Related Technologies / Tags Section */}
+        {article.tags && article.tags.length > 0 && (
+          <section aria-label="Related Technologies" className="mt-12 pt-8 border-t border-white/10">
+            <h2 className="text-xs font-mono-tech font-bold uppercase tracking-wider text-gray-300 mb-3 flex items-center gap-2">
+              <Tag className="w-3.5 h-3.5 text-[#BE93FD]" />
+              <span>RELATED TECHNOLOGIES & TOPICS:</span>
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {article.tags.map((tag, idx) => (
+                <Link
+                  key={idx}
+                  to={`/articles?tag=${encodeURIComponent(tag)}`}
+                  className="text-xs font-mono-tech px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:border-[#BE93FD] hover:text-white hover:bg-[#BE93FD]/10 transition-all"
+                >
+                  #{tag}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related Articles Section */}
+        {relatedArticles.length > 0 && (
+          <section aria-label="Related Articles" className="mt-10 pt-8 border-t border-white/10">
+            <h2 className="text-xs font-mono-tech font-bold uppercase tracking-wider text-gray-300 mb-4 flex items-center gap-2">
+              <BookOpen className="w-3.5 h-3.5 text-[#FF6F91]" />
+              <span>RELATED ARCHITECTURAL GUIDES:</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {relatedArticles.map((rel) => (
+                <Link
+                  key={rel.slug}
+                  to={`/articles/${rel.slug}`}
+                  className="p-4 rounded-2xl glass-card border border-white/10 hover:border-[#BE93FD] transition-all group flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="text-[10px] font-mono-tech text-[#BE93FD] uppercase font-bold">
+                      {rel.category}
+                    </span>
+                    <h3 className="font-display font-bold text-sm text-white mt-1 group-hover:text-[#BE93FD] transition-colors leading-snug">
+                      {rel.title}
+                    </h3>
+                  </div>
+                  <div className="mt-3 flex items-center justify-between text-[11px] font-mono-tech text-gray-400">
+                    <span>{rel.readingTime || rel.readTime}</span>
+                    <span className="text-[#FF6F91] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                      Read →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Author Sign-Off & Context Bio */}
         <div className="mt-14 p-6 sm:p-8 rounded-3xl glass-card border border-white/10 flex flex-col sm:flex-row items-start sm:items-center gap-6">

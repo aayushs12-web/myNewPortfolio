@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   Sparkles,
   CheckCircle2,
@@ -175,7 +176,6 @@ export default function ContactUs23() {
     let emailSentSuccessfully = false;
 
     try {
-      const { default: emailjs } = await import("@emailjs/browser");
       // Initialize EmailJS Public Key
       emailjs.init({ publicKey });
 
