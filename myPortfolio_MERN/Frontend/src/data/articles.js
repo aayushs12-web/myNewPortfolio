@@ -89,6 +89,33 @@ export const ARTICLES = [
     dateModified: "2026-08-26",
     readTime: "9 min read",
   },
+  {
+    slug: "react-performance-optimization-inp-web-vitals",
+    title:
+      "React 19 Performance Optimization: Code Splitting, WebP, LCP, INP and Efficient Rendering",
+    description:
+      "A comprehensive engineering guide to React 19 performance optimization: route-level code splitting, WebP image encoding, reducing main-thread INP latency, and IntersectionObserver.",
+    category: "Performance",
+    tags: ["React 19", "Performance", "Code Splitting", "WebP", "LCP", "INP", "IntersectionObserver", "Vite"],
+    author: "Aayush Sharma",
+    publishedDate: "2026-08-26",
+    modifiedDate: "2026-08-26",
+    readingTime: "8 min read",
+    featured: false,
+    canonical: "https://aayushlabs.vercel.app/articles/react-performance-optimization-inp-web-vitals",
+    image: "https://aayushlabs.vercel.app/og-image.png",
+    summary:
+      "Optimizing React single-page applications requires route-level code splitting, WebP asset compression, main-thread INP reduction, and asynchronous IntersectionObserver scroll decoupling to deliver fast, responsive user experiences.",
+    loadContent: () => import("./articles/ReactPerformanceOptimizationInpWebVitals.jsx"),
+    content: () => import("./articles/ReactPerformanceOptimizationInpWebVitals.jsx"),
+    component: () => import("./articles/ReactPerformanceOptimizationInpWebVitals.jsx"),
+    published: true,
+
+    // Backward compatibility aliases
+    datePublished: "2026-08-26",
+    dateModified: "2026-08-26",
+    readTime: "8 min read",
+  },
 ];
 
 /**
