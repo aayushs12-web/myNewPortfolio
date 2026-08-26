@@ -332,50 +332,50 @@ export const SEO_CONFIGS = {
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Do you work with businesses and startups in Ahmedabad?",
+              "name": "How much does a custom website cost for an Ahmedabad business?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Although I am based in Pali, Rajasthan, I work with businesses, startups, and founders across Ahmedabad (including teams along SG Highway, Prahlad Nagar, and Bodakdev) remotely through structured video calls, collaborative Git repositories, and transparent milestone deliveries."
+                "text": "Website development costs depend on project scope, custom UI design, third-party integrations, database schema complexity, authentication, and deployment architecture. Rather than charging fixed template packages, I provide transparent, scope-based estimates for landing pages, multi-page business websites, e-commerce storefronts, and full-stack MERN web applications based on your exact technical requirements."
               }
             },
             {
               "@type": "Question",
-              "name": "What technologies do you use for web application development?",
+              "name": "How long does it take to design and develop a website?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "I specialize in the modern JavaScript ecosystem using the full MERN stack: React 19 and Tailwind CSS on the frontend, Node.js and Express.js on the backend, and MongoDB (with Mongoose) for the database layer. For cloud deployments, I use Vercel and Docker containerization."
+                "text": "Development timelines vary according to project scale, design complexity, and backend features. A single-page responsive landing page typically requires 5–7 business days, while a multi-page corporate website or full-stack MERN application with custom APIs, authentication, and database schemas generally takes 2–6 weeks depending on feedback cycles and content readiness."
               }
             },
             {
               "@type": "Question",
-              "name": "What types of websites and digital solutions can you build?",
+              "name": "What does a Full-Stack MERN Developer build?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "I build full-stack SaaS web applications, custom e-commerce storefronts with integrated payment gateways, high-converting responsive landing pages, real-time client portals, and administrative management dashboards."
+                "text": "A Full-Stack MERN Developer designs and builds complete web applications across both client and server layers. This includes dynamic React frontends, robust Node.js and Express REST APIs, MongoDB database schemas, user authentication (JWT/OAuth), third-party payment and webhook integrations, and cloud deployment pipelines."
               }
             },
             {
               "@type": "Question",
-              "name": "How do you manage communication and project delivery remotely?",
+              "name": "Why choose a custom MERN application instead of a template-based website?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Communication is handled smoothly via scheduled Google Meet calls, email, and Loom video walkthroughs. Project milestones are tracked on GitHub or agile boards with live preview staging URLs so you can test updates before production release."
+                "text": "A custom MERN application gives greater control over application architecture, business logic, dependencies, APIs, and data handling. It can be a strong fit for custom workflows, dashboards, integrations, and application-specific functionality. Template-based CMS platforms can remain practical for simpler content-focused websites."
               }
             },
             {
               "@type": "Question",
-              "name": "Do I get full source code ownership upon project completion?",
+              "name": "Does Aayush Sharma provide web development services to Ahmedabad businesses remotely?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Upon final project sign-off and milestone settlement, you receive 100% full ownership of the clean Git source code repository, documentation, deployment scripts, and database schemas with zero vendor lock-in."
+                "text": "Yes. Based in Pali, Rajasthan, I work with businesses, startups, and founders in Ahmedabad and Gandhinagar remotely. Collaboration is conducted through structured Google Meet calls, milestone updates on live staging environments, clear Git repositories, and transparent project tracking without geographical friction."
               }
             },
             {
               "@type": "Question",
-              "name": "How can an Ahmedabad business request a project quote?",
+              "name": "What is included when hiring Aayush Sharma?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can navigate to the contact page to share your project scope, select required deliverables, and specify your target timeline. Alternatively, you can email me directly at aayush.s4568@gmail.com for an initial consultation."
+                "text": "Engagements include end-to-end development: architectural planning, responsive UI implementation with React and Tailwind CSS, backend API engineering, database design, technical SEO setup, security validation, live cloud deployment, and 100% full source code ownership transferred upon project sign-off."
               }
             }
           ]

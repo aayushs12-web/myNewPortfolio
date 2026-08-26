@@ -22,35 +22,38 @@ import {
   Server,
   ArrowUpRight,
   ExternalLink,
-  PhoneCall,
   Mail,
   Zap,
+  Check,
+  Sliders,
+  Database,
+  LayoutTemplate,
 } from "lucide-react";
 
 export const AHMEDABAD_FAQS = [
   {
-    q: "Do you work with businesses and startups in Ahmedabad?",
-    a: "Yes. Although I am based in Pali, Rajasthan, I work with businesses, startups, and founders across Ahmedabad (including teams along SG Highway, Prahlad Nagar, and Bodakdev) remotely through structured video calls, collaborative Git repositories, and transparent milestone deliveries.",
+    q: "How much does a custom website cost for an Ahmedabad business?",
+    a: "Website development costs depend on project scope, custom UI design, third-party integrations, database schema complexity, authentication, and deployment architecture. Rather than charging fixed template packages, I provide transparent, scope-based estimates for landing pages, multi-page business websites, e-commerce storefronts, and full-stack MERN web applications based on your exact technical requirements.",
   },
   {
-    q: "What technologies do you use for web application development?",
-    a: "I specialize in the modern JavaScript ecosystem using the full MERN stack: React 19 and Tailwind CSS on the frontend, Node.js and Express.js on the backend, and MongoDB (with Mongoose) for the database layer. For cloud deployments, I use Vercel and Docker containerization.",
+    q: "How long does it take to design and develop a website?",
+    a: "Development timelines vary according to project scale, design complexity, and backend features. A single-page responsive landing page typically requires 5–7 business days, while a multi-page corporate website or full-stack MERN application with custom APIs, authentication, and database schemas generally takes 2–6 weeks depending on feedback cycles and content readiness.",
   },
   {
-    q: "What types of websites and digital solutions can you build?",
-    a: "I build full-stack SaaS web applications, custom e-commerce storefronts with integrated payment gateways, high-converting responsive landing pages, real-time client portals, and administrative management dashboards.",
+    q: "What does a Full-Stack MERN Developer build?",
+    a: "A Full-Stack MERN Developer designs and builds complete web applications across both client and server layers. This includes dynamic React frontends, robust Node.js and Express REST APIs, MongoDB database schemas, user authentication (JWT/OAuth), third-party payment and webhook integrations, and cloud deployment pipelines.",
   },
   {
-    q: "How do you manage communication and project delivery remotely?",
-    a: "Communication is handled smoothly via scheduled Google Meet calls, email, and Loom video walkthroughs. Project milestones are tracked on GitHub or agile boards with live preview staging URLs so you can test updates before production release.",
+    q: "Why choose a custom MERN application instead of a template-based website?",
+    a: "A custom MERN application gives greater control over application architecture, business logic, dependencies, APIs, and data handling. It can be a strong fit for custom workflows, dashboards, integrations, and application-specific functionality. Template-based CMS platforms can remain practical for simpler content-focused websites.",
   },
   {
-    q: "Do I get full source code ownership upon project completion?",
-    a: "Yes. Upon final project sign-off and milestone settlement, you receive 100% full ownership of the clean Git source code repository, documentation, deployment scripts, and database schemas with zero vendor lock-in.",
+    q: "Does Aayush Sharma provide web development services to Ahmedabad businesses remotely?",
+    a: "Yes. Based in Pali, Rajasthan, I work with businesses, startups, and founders in Ahmedabad and Gandhinagar remotely. Collaboration is conducted through structured Google Meet calls, milestone updates on live staging environments, clear Git repositories, and transparent project tracking without geographical friction.",
   },
   {
-    q: "How can an Ahmedabad business request a project quote?",
-    a: "You can navigate to the contact page to share your project scope, select required deliverables, and specify your target timeline. Alternatively, you can email me directly at aayush.s4568@gmail.com for an initial consultation.",
+    q: "What is included when hiring Aayush Sharma?",
+    a: "Engagements include end-to-end development: architectural planning, responsive UI implementation with React and Tailwind CSS, backend API engineering, database design, technical SEO setup, security validation, live cloud deployment, and 100% full source code ownership transferred upon project sign-off.",
   },
 ];
 
@@ -102,7 +105,7 @@ export default function AhmedabadDeveloper() {
 
             {/* Factual Intro Paragraph for AEO */}
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-body mb-6">
-              I am <strong className="text-white">Aayush Sharma</strong>, a Full-Stack MERN Developer based in Pali, Rajasthan, delivering high-performance web engineering services for businesses, commercial ventures, and startups across Ahmedabad, Gujarat. From modernizing traditional trade workflows to building high-converting e-commerce platforms and bespoke React single-page applications, I engineer fast, reliable, and scalable web solutions.
+              I am <strong className="text-white">Aayush Sharma</strong>, a Full-Stack MERN Developer based in Pali, Rajasthan, providing high-performance website development services and custom web application engineering for businesses, startups, and commercial ventures in Ahmedabad, Gujarat. Operating as an independent freelance web developer with a remote delivery model, I engineer fast, reliable, and scalable web solutions tailored to modern digital workflows.
             </p>
 
             {/* Hero CTAs */}
@@ -118,7 +121,7 @@ export default function AhmedabadDeveloper() {
                 to="/services"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full glass-card border border-[#BE93FD]/40 text-white font-display font-extrabold text-xs sm:text-sm tracking-wide hover:border-[#FF6F91] hover:bg-[#BE93FD]/10 transition-all duration-300"
               >
-                <span>View Full Service Scope</span>
+                <span>View Web Development Services</span>
                 <Layers className="w-4 h-4 text-[#BE93FD]" />
               </Link>
             </div>
@@ -160,13 +163,13 @@ export default function AhmedabadDeveloper() {
       <section className="mb-16 sm:mb-20">
         <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
           <Laptop className="w-4 h-4 text-[#FF6F91]" />
-          <span>Local Market Context & Scalability</span>
+          <span>Local Market Context & Digital Modernization</span>
         </div>
         <h2 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight mb-4">
           Full-Stack Web Development for Ahmedabad Businesses
         </h2>
         <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-body">
-          Ahmedabad represents one of western India's most dynamic commercial and industrial epicenters. From long-standing textile and manufacturing enterprises transitioning to digital operations to new consumer brands and tech startups situated around SG Highway, Prahlad Nagar, and Sindhu Bhavan Road, modern businesses require robust web infrastructure rather than slow, cookie-cutter templates.
+          Ahmedabad represents one of western India's most vibrant commercial centers, spanning manufacturing powerhouses, B2B exporters, direct-to-consumer e-commerce brands, service enterprises, and emerging SaaS startups. As modern businesses expand their digital presence along SG Highway, Prahlad Nagar, Bodakdev, and Sindhu Bhavan Road, they need robust, custom-engineered web infrastructure instead of slow, generic templates.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
@@ -178,7 +181,7 @@ export default function AhmedabadDeveloper() {
                 Custom Web Architecture
               </h3>
               <p className="text-xs text-gray-300 leading-relaxed">
-                Purpose-built React and Node.js solutions tailored precisely to your company's operational workflow, eliminating bloated plugins and slow page loads.
+                Purpose-built React and Node.js solutions tailored precisely to your company's operational workflow, focusing on maintainable code, controlled dependencies, and fast page loads.
               </p>
             </div>
           </div>
@@ -213,86 +216,41 @@ export default function AhmedabadDeveloper() {
         </div>
       </section>
 
-      {/* Section 2: MERN Stack Web Applications */}
+      {/* Section 2: Web Development Capabilities */}
       <section className="mb-16 sm:mb-20">
         <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
           <Code2 className="w-4 h-4 text-[#FF6F91]" />
-          <span>Modern Engineering Stack</span>
+          <span>Engineering Solutions</span>
         </div>
         <h2 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight mb-4">
-          MERN Stack Web Applications
+          Web Development Services in Ahmedabad
         </h2>
         <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-body">
-          The MERN stack (MongoDB, Express.js, React 19, Node.js) provides the ideal balance between frontend responsiveness and backend processing power. Whether building interactive portals, workflow automation tools, or data-intensive dashboards for Ahmedabad teams, this stack ensures modular scalability.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/20">
-            <span className="font-mono-tech text-xs text-[#BE93FD] font-bold">FRONTEND</span>
-            <h4 className="font-display font-bold text-base text-white mt-1 mb-2">React 19 & Vite</h4>
-            <p className="text-xs text-gray-300 leading-relaxed">
-              Component-based modular architecture, instant sub-second page transitions, state management with React Hooks and Redux Toolkit.
-            </p>
-          </div>
-
-          <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/20">
-            <span className="font-mono-tech text-xs text-[#D65DB1] font-bold">API LAYER</span>
-            <h4 className="font-display font-bold text-base text-white mt-1 mb-2">Express.js Framework</h4>
-            <p className="text-xs text-gray-300 leading-relaxed">
-              RESTful API design, controller-service pattern, rate limiting, CORS configuration, and structured request validation.
-            </p>
-          </div>
-
-          <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/20">
-            <span className="font-mono-tech text-xs text-[#FF6F91] font-bold">DATABASE</span>
-            <h4 className="font-display font-bold text-base text-white mt-1 mb-2">MongoDB & Mongoose</h4>
-            <p className="text-xs text-gray-300 leading-relaxed">
-              Flexible document schemas, optimized indexing, aggregation pipelines, and robust data sanitization protocols.
-            </p>
-          </div>
-
-          <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/20">
-            <span className="font-mono-tech text-xs text-emerald-400 font-bold">SECURITY</span>
-            <h4 className="font-display font-bold text-base text-white mt-1 mb-2">JWT & OAuth</h4>
-            <p className="text-xs text-gray-300 leading-relaxed">
-              Token-based stateless authentication, bcrypt password hashing, role-based access control, and secure HTTP-only cookies.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: Business Websites & E-commerce Development */}
-      <section className="mb-16 sm:mb-20">
-        <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
-          <ShoppingBag className="w-4 h-4 text-[#FF6F91]" />
-          <span>Commerce & Conversion</span>
-        </div>
-        <h2 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight mb-4">
-          Business Websites & E-commerce Development
-        </h2>
-        <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-body">
-          Ahmedabad is a powerhouse of retail, wholesale, and direct-to-consumer businesses. Transitioning from generic template stores to bespoke e-commerce engines allows local merchants to offer frictionless checkout experiences, custom product configuration, and seamless order management.
+          Whether you need a full-stack SaaS platform, a high-converting landing page, or a custom merchant portal, I build scalable web software using the modern JavaScript ecosystem.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="glass-card p-6 rounded-3xl border border-white/10 flex flex-col justify-between">
             <div>
               <h3 className="font-display font-bold text-xl text-white mb-3 flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5 text-[#FF6F91]" />
-                <span>Custom E-Commerce Storefronts</span>
+                <Layers className="w-5 h-5 text-[#BE93FD]" />
+                <span>Custom MERN Web Applications</span>
               </h3>
+              <p className="text-xs text-gray-300 leading-relaxed mb-4">
+                Full-stack web software built with React 19, Node.js, Express, and MongoDB for interactive dashboards, internal tools, and SaaS MVPs.
+              </p>
               <ul className="space-y-2 text-xs text-gray-300">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0" />
-                  <span>Secure payment gateway integration (Razorpay, Stripe, UPI)</span>
+                  <span>Secure JWT authentication & role-based access control</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0" />
-                  <span>Dynamic shopping cart, discount vouchers, and checkout flow</span>
+                  <span>Modular REST API architecture & database indexing</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0" />
-                  <span>Administrative product catalogue & live inventory management</span>
+                  <span>Cloud deployment with Docker containerization or Vercel</span>
                 </li>
               </ul>
             </div>
@@ -301,7 +259,7 @@ export default function AhmedabadDeveloper() {
                 to="/services"
                 className="text-xs font-mono-tech font-bold text-[#BE93FD] hover:text-[#FF6F91] inline-flex items-center gap-1.5 transition-colors"
               >
-                <span>Learn more about e-commerce deliverables</span>
+                <span>Explore MERN services</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -310,21 +268,24 @@ export default function AhmedabadDeveloper() {
           <div className="glass-card p-6 rounded-3xl border border-white/10 flex flex-col justify-between">
             <div>
               <h3 className="font-display font-bold text-xl text-white mb-3 flex items-center gap-2">
-                <Server className="w-5 h-5 text-[#BE93FD]" />
-                <span>Corporate & B2B Portals</span>
+                <ShoppingBag className="w-5 h-5 text-[#FF6F91]" />
+                <span>E-Commerce & B2B Portals</span>
               </h3>
+              <p className="text-xs text-gray-300 leading-relaxed mb-4">
+                Bespoke digital storefronts and B2B quotation portals designed for frictionless transactions, high conversions, and seamless catalog management.
+              </p>
               <ul className="space-y-2 text-xs text-gray-300">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0" />
-                  <span>High-authority brand presentation tailored to manufacturing and trade</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#FF6F91] shrink-0" />
+                  <span>Payment gateway integration (Razorpay, Stripe, UPI)</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0" />
-                  <span>Automated lead capture, quotation request forms, and CRM webhooks</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#FF6F91] shrink-0" />
+                  <span>Dynamic shopping cart, discount rules & order processing</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0" />
-                  <span>Optimized for fast mobile loading across Indian telecom networks</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#FF6F91] shrink-0" />
+                  <span>Administrative inventory & customer management</span>
                 </li>
               </ul>
             </div>
@@ -333,7 +294,7 @@ export default function AhmedabadDeveloper() {
                 to="/contact"
                 className="text-xs font-mono-tech font-bold text-[#BE93FD] hover:text-[#FF6F91] inline-flex items-center gap-1.5 transition-colors"
               >
-                <span>Request a corporate website consultation</span>
+                <span>Request e-commerce consultation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -341,77 +302,352 @@ export default function AhmedabadDeveloper() {
         </div>
       </section>
 
-      {/* Section 4: Responsive Landing Pages & UI Development */}
+      {/* Section 3: Custom MERN Application vs Traditional CMS */}
       <section className="mb-16 sm:mb-20">
         <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
-          <Rocket className="w-4 h-4 text-[#FF6F91]" />
-          <span>Visual Aesthetics & Conversion</span>
+          <Sliders className="w-4 h-4 text-[#FF6F91]" />
+          <span>Architectural Comparison</span>
         </div>
         <h2 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight mb-4">
-          Responsive Landing Pages & UI Development
+          Custom MERN Application vs Traditional CMS
         </h2>
         <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-body">
-          A marketing campaign is only as effective as the landing page handling visitor traffic. I design and develop responsive, high-converting landing pages engineered with Tailwind CSS, fluid typography, subtle micro-interactions, and clear conversion funnels.
+          Every digital project has distinct technical requirements. Choosing between a custom MERN architecture and a traditional Content Management System (CMS) depends on whether your project requires bespoke business logic, interactive dashboards, or standard content publishing.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Custom MERN Card */}
+          <div className="glass-card p-6 sm:p-8 rounded-3xl border border-[#BE93FD]/40 relative overflow-hidden">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#BE93FD]/15 border border-[#BE93FD]/30 text-[#BE93FD] text-xs font-mono-tech font-bold uppercase mb-4">
+              <Code2 className="w-3.5 h-3.5" />
+              <span>Custom MERN Application</span>
+            </div>
+            <h3 className="font-display font-bold text-xl text-white mb-3">
+              Purpose-Built Engineering
+            </h3>
+            <p className="text-xs text-gray-300 leading-relaxed mb-6">
+              Ideal for SaaS platforms, custom client portals, web applications, and products requiring bespoke database schemas and business logic.
+            </p>
+            <div className="space-y-3 text-xs text-gray-300">
+              <div className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span><strong>Custom Logic:</strong> Tailored business rules without template constraints.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span><strong>React Frontend:</strong> Dynamic, component-driven single-page interactions.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span><strong>Node & Express API:</strong> Scalable RESTful endpoints with structured middleware.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span><strong>MongoDB Data Model:</strong> Flexible JSON-like document schemas for evolving data.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span><strong>Controlled Dependencies:</strong> Zero reliance on third-party theme plugins.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span><strong>Modern Deployment:</strong> Optimized edge routing on Vercel or containerized Docker.</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Traditional CMS Card */}
+          <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/10 relative overflow-hidden">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-mono-tech font-bold uppercase mb-4">
+              <LayoutTemplate className="w-3.5 h-3.5 text-[#FF6F91]" />
+              <span>Traditional CMS (e.g. WordPress)</span>
+            </div>
+            <h3 className="font-display font-bold text-xl text-white mb-3">
+              Standard Content Publishing
+            </h3>
+            <p className="text-xs text-gray-300 leading-relaxed mb-6">
+              A well-established solution for basic informational websites, editorial blogs, and teams that prefer non-technical visual page builders.
+            </p>
+            <div className="space-y-3 text-xs text-gray-300">
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0 mt-0.5" />
+                <span><strong>Plugin Ecosystem:</strong> Vast library of pre-built extensions and widgets.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0 mt-0.5" />
+                <span><strong>Rapid Setup:</strong> Quick deployment for standard brochure sites.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0 mt-0.5" />
+                <span><strong>Broad Ecosystem:</strong> Extensive non-technical admin panel support.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-[#BE93FD] shrink-0 mt-0.5" />
+                <span><strong>Publishing Fit:</strong> Suitable for daily articles and marketing blogs.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <span className="w-4 h-4 text-gray-500 shrink-0 text-center font-bold font-mono-tech mt-0.5">•</span>
+                <span className="text-gray-400">Requires ongoing plugin maintenance and security patch updates.</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <span className="w-4 h-4 text-gray-500 shrink-0 text-center font-bold font-mono-tech mt-0.5">•</span>
+                <span className="text-gray-400">Complex custom workflows often require heavy theme customization.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Website Development Budgets & Scope */}
+      <section className="mb-16 sm:mb-20">
+        <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
+          <Sparkles className="w-4 h-4 text-[#FF6F91]" />
+          <span>Transparent Planning</span>
+        </div>
+        <h2 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight mb-4">
+          Website Development Budgets & Project Scope
+        </h2>
+        <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-body">
+          To help Ahmedabad businesses plan their digital investments accurately, project scopes are structured around functional complexity rather than opaque pricing tiers.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          {/* Scope 1: Landing Page */}
+          <div className="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <span className="font-mono-tech text-xs text-[#BE93FD] font-bold">TYPE 01</span>
+              <h3 className="font-display font-bold text-base text-white mt-1 mb-2">
+                Landing Page & UI Prototype
+              </h3>
+              <div className="space-y-2 text-xs text-gray-300 mb-4">
+                <p><strong>Typical Scope:</strong> Single high-converting landing page or interactive product prototype.</p>
+                <p><strong>Deliverables:</strong> React 19/Tailwind layout, lead capture form, technical SEO, mobile optimization.</p>
+                <p><strong>Cost Factors:</strong> Custom micro-animations, copy readiness, third-party analytics hooks.</p>
+              </div>
+            </div>
+            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech">
+              <span className="text-gray-400">Complexity:</span>
+              <span className="text-[#BE93FD] font-bold">Low to Moderate</span>
+            </div>
+          </div>
+
+          {/* Scope 2: Business Website */}
+          <div className="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <span className="font-mono-tech text-xs text-[#D65DB1] font-bold">TYPE 02</span>
+              <h3 className="font-display font-bold text-base text-white mt-1 mb-2">
+                Multi-Page Business Website
+              </h3>
+              <div className="space-y-2 text-xs text-gray-300 mb-4">
+                <p><strong>Typical Scope:</strong> Multi-page corporate presence for B2B, manufacturing, or service companies.</p>
+                <p><strong>Deliverables:</strong> Structured navigation, service catalogs, inquiry forms, dynamic routing, Schema markup.</p>
+                <p><strong>Cost Factors:</strong> Total page count, custom UI components, dynamic content layer, CRM webhooks.</p>
+              </div>
+            </div>
+            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech">
+              <span className="text-gray-400">Complexity:</span>
+              <span className="text-[#D65DB1] font-bold">Moderate</span>
+            </div>
+          </div>
+
+          {/* Scope 3: E-Commerce Storefront */}
+          <div className="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <span className="font-mono-tech text-xs text-[#FF6F91] font-bold">TYPE 03</span>
+              <h3 className="font-display font-bold text-base text-white mt-1 mb-2">
+                E-Commerce Storefront
+              </h3>
+              <div className="space-y-2 text-xs text-gray-300 mb-4">
+                <p><strong>Typical Scope:</strong> Direct-to-consumer (D2C) or wholesale digital product storefront.</p>
+                <p><strong>Deliverables:</strong> Product catalog, dynamic shopping cart, Razorpay/Stripe checkout, admin inventory panel.</p>
+                <p><strong>Cost Factors:</strong> SKU volume, payment gateways, tax/shipping logic, custom checkout steps.</p>
+              </div>
+            </div>
+            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech">
+              <span className="text-gray-400">Complexity:</span>
+              <span className="text-[#FF6F91] font-bold">Moderate to High</span>
+            </div>
+          </div>
+
+          {/* Scope 4: Custom MERN Web App */}
+          <div className="glass-card p-5 rounded-2xl border border-[#BE93FD]/30 flex flex-col justify-between">
+            <div>
+              <span className="font-mono-tech text-xs text-emerald-400 font-bold">TYPE 04</span>
+              <h3 className="font-display font-bold text-base text-white mt-1 mb-2">
+                Custom MERN Application
+              </h3>
+              <div className="space-y-2 text-xs text-gray-300 mb-4">
+                <p><strong>Typical Scope:</strong> Bespoke SaaS platform, internal workflow tool, or startup MVP.</p>
+                <p><strong>Deliverables:</strong> JWT authentication, Node/Express REST API, MongoDB schema, dashboard, cloud deployment.</p>
+                <p><strong>Cost Factors:</strong> API endpoint count, role permissions, real-time features, external API integrations.</p>
+              </div>
+            </div>
+            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech">
+              <span className="text-gray-400">Complexity:</span>
+              <span className="text-emerald-400 font-bold">High</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Pricing Notice Callout */}
+        <div className="glass-card p-4 sm:p-5 rounded-2xl border border-[#BE93FD]/30 text-xs sm:text-sm text-gray-300 flex items-center gap-3">
+          <Sparkles className="w-5 h-5 text-[#BE93FD] shrink-0" />
+          <span>
+            <em>Note:</em> Final pricing depends on scope, integrations, content, authentication, database requirements, and deployment requirements. Contact me with your functional specification for a tailored project estimate.
+          </span>
+        </div>
+      </section>
+
+      {/* Section 5: Website Development Timeline */}
+      <section className="mb-16 sm:mb-20">
+        <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
+          <Clock className="w-4 h-4 text-[#FF6F91]" />
+          <span>Project Lifecycle & Planning</span>
+        </div>
+        <h2 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight mb-4">
+          Website Development Timeline & Factors
+        </h2>
+        <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-body">
+          Project timelines are driven by functional requirements, asset availability, and review iterations. Here are the core technical factors that determine the delivery timeline for an Ahmedabad web project:
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="glass-card p-5 rounded-2xl border border-white/10">
-            <h4 className="font-display font-bold text-base text-white mb-2">Modern Glassmorphism</h4>
+            <h4 className="font-display font-bold text-sm text-white mb-2 flex items-center gap-2">
+              <Layers className="w-4 h-4 text-[#BE93FD]" />
+              <span>Page Volume & UI Customization</span>
+            </h4>
             <p className="text-xs text-gray-300 leading-relaxed">
-              Curated color palettes, dark mode ergonomics, and premium design tokens that make your brand stand out from generic templates.
+              Single-page layouts take less time than multi-page portals with customized responsive states and micro-interactions.
             </p>
           </div>
+
           <div className="glass-card p-5 rounded-2xl border border-white/10">
-            <h4 className="font-display font-bold text-base text-white mb-2">Mobile-First Layouts</h4>
+            <h4 className="font-display font-bold text-sm text-white mb-2 flex items-center gap-2">
+              <Server className="w-4 h-4 text-[#D65DB1]" />
+              <span>Backend APIs & Logic</span>
+            </h4>
             <p className="text-xs text-gray-300 leading-relaxed">
-              100% fluid responsive styling tested thoroughly across smartphones, tablets, laptops, and ultra-wide displays.
+              Custom Node.js endpoints, complex business logic, and third-party webhook integrations require thorough design and unit testing.
             </p>
           </div>
+
           <div className="glass-card p-5 rounded-2xl border border-white/10">
-            <h4 className="font-display font-bold text-base text-white mb-2">Smooth Interactions</h4>
+            <h4 className="font-display font-bold text-sm text-white mb-2 flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#FF6F91]" />
+              <span>Authentication & Security</span>
+            </h4>
             <p className="text-xs text-gray-300 leading-relaxed">
-              GPU-accelerated micro-animations with Framer Motion that engage visitors without degrading device performance.
+              Implementing JWT token validation, OAuth providers, bcrypt hashing, and role-based route guards adds necessary testing cycles.
+            </p>
+          </div>
+
+          <div className="glass-card p-5 rounded-2xl border border-white/10">
+            <h4 className="font-display font-bold text-sm text-white mb-2 flex items-center gap-2">
+              <Database className="w-4 h-4 text-emerald-400" />
+              <span>Database Architecture</span>
+            </h4>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              MongoDB schema modeling, indexing for query speed, and data validation rules ensure long-term database stability.
+            </p>
+          </div>
+
+          <div className="glass-card p-5 rounded-2xl border border-white/10">
+            <h4 className="font-display font-bold text-sm text-white mb-2 flex items-center gap-2">
+              <ShoppingBag className="w-4 h-4 text-purple-400" />
+              <span>Payment & Checkout Flow</span>
+            </h4>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              Configuring Razorpay/Stripe webhooks, order reconciliation, and automated email receipts requires rigorous sandbox testing.
+            </p>
+          </div>
+
+          <div className="glass-card p-5 rounded-2xl border border-white/10">
+            <h4 className="font-display font-bold text-sm text-white mb-2 flex items-center gap-2">
+              <GitBranch className="w-4 h-4 text-[#BE93FD]" />
+              <span>Content Readiness & Revisions</span>
+            </h4>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              Having branding assets, copy, and product photos ready accelerates development and minimizes iteration cycles.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section 5: Technical SEO & Performance */}
+      {/* Section 6: Technical SEO & Full-Stack Architecture Articles */}
       <section className="mb-16 sm:mb-20">
         <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
           <Search className="w-4 h-4 text-[#FF6F91]" />
-          <span>Search Engine & AI Discoverability</span>
+          <span>Technical Depth & Architecture</span>
         </div>
         <h2 className="font-display font-black text-2xl sm:text-4xl text-white tracking-tight mb-4">
-          Technical SEO & Performance
+          Engineering Standards & Technical Publications
         </h2>
         <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-body">
-          Building a website is only half the battle; it must be discoverable by search engines and answer engines (AEO). Every web application I engineer incorporates strict technical SEO fundamentals: dynamic canonical URL synchronization, Open Graph metadata, Schema.org JSON-LD graphs, and near-perfect Google Lighthouse scores.
+          Every web application I develop adheres to strict engineering principles: dynamic indexing, sub-second Core Web Vitals, and modular REST API structures. Explore my published technical documentation:
         </p>
 
-        <div className="glass-card p-6 sm:p-8 rounded-3xl border border-[#BE93FD]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <span className="font-mono-tech text-xs text-[#BE93FD] font-bold uppercase tracking-wider">
-              ENGINEERING INSIGHT
-            </span>
-            <h3 className="font-display font-bold text-lg sm:text-xl text-white">
-              Want to see how technical SEO works in modern React SPAs?
-            </h3>
-            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-              Read my published technical guide on optimizing Single-Page Applications for dynamic indexing, structured JSON-LD graphs, and Vercel edge routing.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link
             to="/articles/technical-seo-react-vite"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white/5 border border-[#BE93FD]/40 text-white font-mono-tech font-bold text-xs hover:border-[#FF6F91] hover:bg-[#BE93FD]/10 transition-all shrink-0"
+            className="glass-card p-6 rounded-2xl border border-white/10 hover:border-[#BE93FD]/50 transition-all flex flex-col justify-between group"
           >
-            <span>Read SEO Guide</span>
-            <ExternalLink className="w-3.5 h-3.5 text-[#BE93FD]" />
+            <div>
+              <span className="font-mono-tech text-xs text-[#BE93FD] font-bold">SEO ARCHITECTURE</span>
+              <h3 className="font-display font-bold text-base text-white mt-2 mb-2 group-hover:text-[#BE93FD] transition-colors">
+                Technical SEO in React & Vite SPAs
+              </h3>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Implementing Schema.org JSON-LD graphs, dynamic meta tag synchronization, and edge server prerendering.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-1.5 text-xs font-mono-tech text-[#BE93FD]">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link
+            to="/articles/production-nodejs-rest-api-architecture"
+            className="glass-card p-6 rounded-2xl border border-white/10 hover:border-[#D65DB1]/50 transition-all flex flex-col justify-between group"
+          >
+            <div>
+              <span className="font-mono-tech text-xs text-[#D65DB1] font-bold">BACKEND ENGINEERING</span>
+              <h3 className="font-display font-bold text-base text-white mt-2 mb-2 group-hover:text-[#D65DB1] transition-colors">
+                Production Node.js REST API Architecture
+              </h3>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Controller-service layer separation, rate limiting, request validation, and centralized error handling.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-1.5 text-xs font-mono-tech text-[#D65DB1]">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link
+            to="/articles/react-performance-optimization-inp-web-vitals"
+            className="glass-card p-6 rounded-2xl border border-white/10 hover:border-[#FF6F91]/50 transition-all flex flex-col justify-between group"
+          >
+            <div>
+              <span className="font-mono-tech text-xs text-[#FF6F91] font-bold">PERFORMANCE</span>
+              <h3 className="font-display font-bold text-base text-white mt-2 mb-2 group-hover:text-[#FF6F91] transition-colors">
+                React Performance & Interaction to Next Paint (INP)
+              </h3>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Optimizing React 19 render cycles, code splitting, asset preloading, and Core Web Vitals for top Lighthouse scores.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-1.5 text-xs font-mono-tech text-[#FF6F91]">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
           </Link>
         </div>
       </section>
 
-      {/* Section 6: How I Work With Ahmedabad Clients */}
+      {/* Section 7: How I Work With Ahmedabad Clients */}
       <section className="mb-16 sm:mb-20">
         <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
           <GitBranch className="w-4 h-4 text-[#FF6F91]" />
@@ -438,9 +674,9 @@ export default function AhmedabadDeveloper() {
           <div className="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
             <div>
               <span className="font-mono-tech text-xl text-[#D65DB1] font-black">02</span>
-              <h4 className="font-display font-bold text-sm text-white mt-2 mb-1">UI & Component Design</h4>
+              <h4 className="font-display font-bold text-sm text-white mt-2 mb-1">UI & Component Architecture</h4>
               <p className="text-xs text-gray-300 leading-relaxed">
-                Structuring modular React interfaces with accessible design tokens, responsive breakpoints, and glassmorphism styling.
+                Structuring modular React interfaces with accessible design tokens, responsive breakpoints, and modern aesthetics.
               </p>
             </div>
           </div>
@@ -458,7 +694,7 @@ export default function AhmedabadDeveloper() {
           <div className="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
             <div>
               <span className="font-mono-tech text-xl text-purple-400 font-black">04</span>
-              <h4 className="font-display font-bold text-sm text-white mt-2 mb-1">Testing & Audits</h4>
+              <h4 className="font-display font-bold text-sm text-white mt-2 mb-1">Testing & Performance</h4>
               <p className="text-xs text-gray-300 leading-relaxed">
                 Executing cross-browser validation, API error handling tests, Google Lighthouse optimization, and SEO metadata sync.
               </p>
@@ -477,7 +713,7 @@ export default function AhmedabadDeveloper() {
         </div>
       </section>
 
-      {/* Section 7: Frequently Asked Questions */}
+      {/* Section 8: Frequently Asked Questions */}
       <section className="mb-16 sm:mb-20">
         <div className="flex items-center gap-2 text-xs font-mono-tech font-bold uppercase text-[#BE93FD] mb-2">
           <HelpCircle className="w-4 h-4 text-[#FF6F91]" />
@@ -487,7 +723,7 @@ export default function AhmedabadDeveloper() {
           Frequently Asked Questions
         </h2>
         <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-8 font-body">
-          Direct, transparent answers regarding my engineering stack, remote collaboration workflow, and technical deliverables.
+          Direct, transparent answers regarding my engineering stack, development pricing factors, timelines, and remote collaboration workflow.
         </p>
 
         <div className="space-y-3">
@@ -530,13 +766,13 @@ export default function AhmedabadDeveloper() {
         </div>
       </section>
 
-      {/* Section 8: Start a Web Development Project */}
+      {/* Section 9: Start a Web Development Project */}
       <section className="glass-card p-8 sm:p-12 rounded-3xl border border-[#BE93FD]/40 text-center relative overflow-hidden shadow-2xl">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#D65DB1]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border border-[#BE93FD]/30 text-[#BE93FD] text-xs font-mono-tech font-bold uppercase mb-4">
             <Zap className="w-3.5 h-3.5 text-[#FF6F91]" />
-            <span>Ready To Build?</span>
+            <span>Direct Project Consultation</span>
           </div>
 
           <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight mb-4">
@@ -544,7 +780,7 @@ export default function AhmedabadDeveloper() {
           </h2>
 
           <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-8">
-            Whether you need a full-stack MERN application, a custom e-commerce store, or a high-performance corporate landing page for your Ahmedabad business, let's connect and discuss your technical requirements.
+            Whether you need a custom full-stack MERN application, an e-commerce platform, or a responsive corporate website for your Ahmedabad business, share your project requirements for a detailed scope review and timeline estimate.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -552,15 +788,23 @@ export default function AhmedabadDeveloper() {
               to="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#BE93FD] via-[#D65DB1] to-[#FF6F91] text-[#0D0814] font-display font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_30px_rgba(214,93,177,0.5)] hover:scale-105 transition-all duration-300"
             >
-              <span>Get in Touch for a Quote</span>
+              <span>Request a Project Estimate</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
+
+            <a
+              href="mailto:aayush.s4568@gmail.com"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full glass-card border border-white/20 text-gray-200 font-mono-tech font-bold text-xs hover:border-[#BE93FD] hover:text-white transition-all duration-300"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#BE93FD]" />
+              <span>Email: aayush.s4568@gmail.com</span>
+            </a>
 
             <Link
               to="/gandhinagar-web-developer"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full glass-card border border-white/20 text-gray-200 font-mono-tech font-bold text-xs hover:border-[#BE93FD] hover:text-white transition-all duration-300"
             >
-              <span>Explore Gandhinagar Services</span>
+              <span>Gandhinagar Services</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#BE93FD]" />
             </Link>
           </div>
